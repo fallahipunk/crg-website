@@ -5,13 +5,12 @@ margin: 0;
 }
 
 .image {
-  width: 100%;
-  /*height:%;*/
-  height: 1550px;
+  height: 0;
   min-width: 320px;
+  width: 100%;
   background-image: url("img/mobile-portrait.jpg");
   background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-size: contain;
 }
 
 .click {
@@ -23,40 +22,54 @@ margin: 0;
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 10px) {
   .image {
+    padding-top: 453.125%;
     background-image: url("img/mobile-portrait.jpg");
   }
 
   .click {
+    padding-top: 305%;
+    top: 0;
+    left: 0;
+    position: absolute;
     display: block;
   }
 
   .active {
+    padding-top: 453.125%;
     background-image: url("img/mobile-portrait-menu.jpg");
   }
 }
 
 /* Small Devices, Tablets */
-@media only screen and (min-width : 375px) {
+@media only screen and (min-width : 400px) {
   .image {
-    min-width: 600px;
-    height: 1400px;
+    padding-top: 182.29167%;
     background-image: url("img/tablet-portrait.jpg");
+  }
+  .click {
+    display: none;
   }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 830px) {
   .image {
-    min-width: 900px;
-    height: 1124px;
+    padding-top: 109.76562%;
     background-image: url("img/desktop.jpg");
+  }
+
+  .click {
+    display: none;
   }
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
   .image {
-    height: 1186px;
+    padding-top: 82.361111%;
     background-image: url("img/desktop-hd.jpg");
+  }
+  .click {
+    display: none;
   }
 }
