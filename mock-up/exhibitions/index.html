@@ -1,0 +1,22 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <script
+			  src="js/zepto.min.js"></script>
+  <script language="javascript">
+  $(function() {                       //run when the DOM is ready
+    $(".click").click(function() {  //use a class, since your ID gets mangled
+      $(".image").toggleClass("active");      //add the class to the clicked element
+    });
+  });
+  </script>
+
+</head>
+<body>
+  <div class="image">
+    <div class="click" style="cursor: pointer;">
+    </div>
+  </div>
+
+</body>
+</html>
