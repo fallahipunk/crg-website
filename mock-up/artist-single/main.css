@@ -22,7 +22,7 @@ margin: 0;
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 10px) {
   .image {
-    padding-top: 453.125%;
+    padding-top: 700.125%;
     background-image: url("img/mobile-portrait.jpg");
   }
 
@@ -43,7 +43,7 @@ margin: 0;
 /* Small Devices, Tablets */
 @media only screen and (min-width : 450px) {
   .image {
-    padding-top: 200.29167%;
+    padding-top: 300.29167%;
     background-image: url("img/tablet-portrait.jpg");
   }
   .click {
@@ -54,7 +54,7 @@ margin: 0;
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 1024px) {
   .image {
-    padding-top: 150.76562%;
+    padding-top: 250.76562%;
     background-image: url("img/desktop.jpg");
   }
 
@@ -66,7 +66,7 @@ margin: 0;
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1440px) {
   .image {
-    padding-top: 135.361111%;
+    padding-top: 235.361111%;
     background-image: url("img/desktop-hd.jpg");
   }
   .click {
