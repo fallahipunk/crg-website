@@ -43,7 +43,7 @@ margin: 0;
 /* Small Devices, Tablets */
 @media only screen and (min-width : 450px) {
   .image {
-    padding-top: 200.29167%;
+    padding-top: 210.29167%;
     background-image: url("img/tablet-portrait.jpg");
   }
   .click {
