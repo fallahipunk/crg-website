@@ -8,3 +8,16 @@
 .sidebar {
   @include make-sm-column($sidebar-sm-columns);
 }
+
+//added somee front page styling here, not sure if this is the place for it, could move it to another
+
+.content.row.front-page{
+max-width: 100%;
+margin:0px;
+padding:0px;
+
+.main{
+margin:0px;
+padding:0px;
+}
+}
