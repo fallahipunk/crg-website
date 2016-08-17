@@ -1,15 +1,24 @@
+.container {
+
+}
+
 .wrap.container.front-page {
 	margin:0px;
 	padding:0px;
 	margin-top:-20%;
+	width:100%;
 }
 
 .front-page-container{
 	max-width:100%;
 	background-color: red;
+
+// changed proper aspect ratio
 	img{
 		width: 100%;
+		height: auto
 	}
+
 	margin:0px;
 	padding:0px;
 }

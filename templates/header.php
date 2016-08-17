@@ -5,7 +5,7 @@
 ?>
 
 <header class="banner navbar navbar-default navbar-fixed-top" role="banner">
-  <div class="container">
+  <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only"><?= __('Toggle navigation', 'sage'); ?></span>
@@ -14,12 +14,14 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>">
+
 		  <?php //bloginfo('name'); // we need to change the following logo image when switching from mobile to desktop ?> 
-		  <img src="<?= get_template_directory_uri() . '/dist/images/logo-sm.jpg'; ?>">
+		  <img src="<?= get_template_directory_uri() . '/dist/images/logo-sm.png'; ?>">
+
 	  </a>
     </div>
 
-    <nav class="collapse navbar-collapse" role="navigation">
+     <nav class="collapse navbar-collapse" role="navigation">  <!-- added navbar collapse back on because it is the navbar itself :) -->
       <?php
       if (has_nav_menu('primary_navigation')) :
         wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new wp_bootstrap_navwalker(), 'menu_class' => 'nav navbar-nav']);
