@@ -21,7 +21,7 @@
 	  </a>
     </div>
 
-     <nav class="collapse" role="navigation">  <!-- removed class navbar-collapse so the logo white background won't stretch to 100% -->
+     <nav class="collapse navbar-collapse" role="navigation">  <!-- added navbar collapse back on because it is the navbar itself :) -->
       <?php
       if (has_nav_menu('primary_navigation')) :
         wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new wp_bootstrap_navwalker(), 'menu_class' => 'nav navbar-nav']);
