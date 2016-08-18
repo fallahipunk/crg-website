@@ -15,8 +15,8 @@
       </button>
       <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>">
 
-		  <?php //bloginfo('name'); // we need to change the following logo image when switching from mobile to desktop ?> 
-		  <img src="<?= get_template_directory_uri() . '/dist/images/logo-sm.png'; ?>">
+		  <?php //bloginfo('name'); // we need to change the following logo image when switching from mobile to desktop ?>
+		  <img src="<?= get_template_directory_uri() . '/assets/images/logo-sm.png'; ?>">
 
 	  </a>
     </div>
