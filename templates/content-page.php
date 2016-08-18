@@ -1,5 +1,5 @@
 <?php if (is_front_page()) : ?>
-	
+
 	<div class= "front-page-container">
 	<?php the_content(); ?>
 	</div>

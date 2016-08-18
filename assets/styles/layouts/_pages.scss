@@ -1,6 +1,4 @@
-.container {
-
-}
+.container {}
 
 .wrap.container.front-page {
 	margin:0px;
@@ -9,16 +7,27 @@
 	width:100%;
 }
 
-.front-page-container{
+.front-page-container {
 	max-width:100%;
 	background-color: red;
-
-// changed proper aspect ratio
-	img{
-		width: 100%;
-		height: auto
-	}
-
 	margin:0px;
 	padding:0px;
+
+	img {
+		width:100%;
+		height: $front-page-img-height-mob;
+		object-fit: cover;
+
+		@media (min-width: $screen-sm-min) {
+			height: $front-page-img-height-sm;
+		}
+
+		@media (min-width: $screen-md-min) {
+			height: $front-page-img-height-md;
+		}
+
+		@media (min-width: $screen-lg-min) {
+			height: $front-page-img-height-lg;
+		}
+	}
 }
