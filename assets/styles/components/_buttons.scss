@@ -1,0 +1,39 @@
+// added styles to the hamburger menu on mobile view, and created the class .hamberger-menu-btn in header .php
+
+.hamberger-menu-btn {
+background-color: white;
+height: 50px;
+width: 100px;
+float: right;
+}
+
+.hamburger-nav-address{
+float: right;
+background-color: black;
+height: 20px;
+width: 100px;
+color: white;
+font-size: 12px;
+padding-left: 10px;
+padding-top: 3px,
+}
+
+.navbar-default .btn-link {
+background-color: white;
+border: none;
+float: left;
+padding-left: 20px;
+width: 80px;
+}
+
+.navbar-default .navbar-toggle:hover{
+background-color: white
+}
+
+.navbar-default .navbar-toggle:visited{
+background-color: white
+}
+
+.navbar-default .navbar-toggle:hover{
+background-color: active
+}
