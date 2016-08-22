@@ -9,7 +9,15 @@
 
 .front-page-container {
 	max-width:100%;
-	background-color: red;
+
+	background-color: blue;
+
+// changed proper aspect ratio
+	img{
+		width: 100%;
+		height: auto
+	}
+
 	margin:0px;
 	padding:0px;
 

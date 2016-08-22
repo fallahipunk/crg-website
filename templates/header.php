@@ -7,12 +7,17 @@
 <header class="banner navbar navbar-default navbar-fixed-top" role="banner">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+    <div class="hamberger-menu-btn">  <button type="button" class="navbar-toggle collapsed btn btn-link" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only"><?= __('Toggle navigation', 'sage'); ?></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+	  <div class="hamburger-nav-address">
+		  195 Chrystie St.
+	  </div>
+  </div>
+
       <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>">
 
 		  <?php //bloginfo('name'); // we need to change the following logo image when switching from mobile to desktop ?>
