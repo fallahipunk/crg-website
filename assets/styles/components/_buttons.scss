@@ -1,10 +1,24 @@
 // added styles to the hamburger menu on mobile view, and created the class .hamberger-menu-btn in header .php
 
-.hamberger-menu-btn {
+// to get rid of the outline in google chrome.
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+    outline: none;
+	 -webkit-box-shadow: none;
+	          box-shadow: none;
+} 
+
+
+.navbar-default .btn, .navbar-default .btn:hover, .navbar-default .btn:focus {
 background-color: white;
-height: 50px;
-width: 100px;
+border: none;
 float: right;
+padding-left: 20px;
+padding-top: 20px;
+width: 100px;
+height: 50px;
+margin: 0px;
+border-radius:0px
 }
 
 .hamburger-nav-address{
@@ -14,26 +28,11 @@ height: 20px;
 width: 100px;
 color: white;
 font-size: 12px;
-padding-left: 10px;
-padding-top: 3px,
+padding-left: 5px;
+padding-top: 3px;
+    margin-top: 16px;
+    margin-right: -10px;
 }
 
-.navbar-default .btn-link {
-background-color: white;
-border: none;
-float: left;
-padding-left: 20px;
-width: 80px;
-}
 
-.navbar-default .navbar-toggle:hover{
-background-color: white
-}
 
-.navbar-default .navbar-toggle:visited{
-background-color: white
-}
-
-.navbar-default .navbar-toggle:hover{
-background-color: active
-}

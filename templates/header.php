@@ -12,10 +12,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
+  	  <div class="hamburger-nav-address">
+  		  195 Chrystie St.
+  	  </div>
       </button>
-	  <div class="hamburger-nav-address">
-		  195 Chrystie St.
-	  </div>
   </div>
 
       <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>">
@@ -25,7 +25,7 @@
 
 	  </a>
     </div>
-
+ <div class= "menu-container">
      <nav class="collapse navbar-collapse" role="navigation">  <!-- added navbar collapse back on because it is the navbar itself :) -->
       <?php
       if (has_nav_menu('primary_navigation')) :
@@ -33,5 +33,6 @@
       endif;
       ?>
     </nav>
+</div>
   </div>
 </header>

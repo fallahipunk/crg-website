@@ -7,23 +7,45 @@ border: none;
     background-color: white;
   }
 
-  .navbar-brand:hover {
-    background-color: white;
+   .navbar-brand:hover, .navbar-brand:active, .navbar-brand:focus {
+    background-color: $crg-gray;
   }
 
-  .navbar-brand:active, .navbar-brand:focus {
-    background-color: #a8a8a8;
-  }
-
-  .collapse {
+  .menu-container {
     background-color: white;
+	float:right;
+    margin-top: 20px;
+    margin-right: -14px;
+	width: $mobile-menu-width;
   }
 
 }
 
-
-.navbar-fixed-top .collapse{
-float:right;
+.hamberger-menu-container {
+background-color: white;
+height: 50px;
+width: 100px;
+float: right;
 }
 
+.hamburger-nav-address{
+float: right;
+background-color: black;
+height: 20px;
+width: 100px;
+color: white;
+font-size: 12px;
+padding-left: 10px;
+padding-top: 3px,
+}
+
+.navbar-nav {
+margin-top: 0px;
+li{
+a{
+padding-left: 70px;
+color: black;
+}
+}
+}
 
