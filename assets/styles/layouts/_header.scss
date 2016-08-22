@@ -3,22 +3,27 @@ margin-top: 30px;
 background-color: transparent;
 border: none;
 
-.navbar-brand{
-background-color: white;
+  .navbar-brand {
+    background-color: white;
+  }
+
+  .navbar-brand:hover {
+    background-color: white;
+  }
+
+  .navbar-brand:active, .navbar-brand:focus {
+    background-color: #a8a8a8;
+  }
+
+  .collapse {
+    background-color: white;
+  }
+
 }
 
-.navbar-brand:hover{
-background-color: white;
-}
-
-.navbar-brand:active, .navbar-brand:focus {
-background-color: #a8a8a8;
-}
-
-
-}
 
 .navbar-fixed-top .collapse{
 float:right;
 }
+
 
