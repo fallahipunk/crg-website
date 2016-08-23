@@ -41,11 +41,33 @@ padding-top: 3px,
 
 .navbar-nav {
 margin-top: 0px;
+margin-bottom:0px;
 li{
 a{
-padding-left: 70px;
+//padding-left: 70px;
 color: black;
 }
+a:hover{
+color: black;
+font-weight: bold;
+}
+
 }
 }
 
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-text{
+color: black;
+}
+
+// get rif of the boortstrap grey bg for selected menu items and make them bold
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover
+{
+color: black;
+background-color: white;
+font-weight: bold;
+}
+
+// get rid of menu border
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+border: none;
+}
