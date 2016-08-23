@@ -35,4 +35,7 @@
     </nav>
 </div>
   </div>
+  <div class="desktop-nav-address hidden-xs">
+  	195 Chrystie Street, New York
+  </div>
 </header>
