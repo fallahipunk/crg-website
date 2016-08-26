@@ -9,7 +9,6 @@
 
 .front-page-container {
 	max-width:100%;
-
 	background-color: blue;
 
 // changed proper aspect ratio
@@ -38,4 +37,43 @@
 			height: $front-page-img-height-lg;
 		}
 	}
+	
+	// front page show title and artist name
+	h1, h2{
+		color: white;
+	   padding: 20px;
+	background-color: $title-black-bg;
+	a, a:hover{
+	color:white;
+	text-decoration: none;
+
+	
+	}
+	
+	position:absolute;
+	left:0;
+	right:0;
+	margin-left:auto;
+	margin-right:0;
+	width: 100%;
+
+	
+	} // h1, h2
+	
+	h1{
+	@media (min-width: $screen-md-min) {
+	width: $desktop-menu-width;
+	}
+	font-size: 30px;
+	}
+	
+	h2{
+	@media (min-width: $screen-md-min) {
+	width: $mobile-menu-width;
+	margin-left:0;
+	margin-right:auto;
+	}
+	font-size: 18px;
+	}
+	
 }

@@ -27,9 +27,19 @@
     // Home page
     'home': {
       init: function() {
-        // JavaScript to be fired on the home page
+		  
       },
       finalize: function() {
+		  
+		  //Find out the height of the show title and date and place them accordingly
+		  var titleheight = $(".front-page-container h1").height();
+		  var dateheight = $(".front-page-container h2").height();
+		  var datemargintop = dateheight+80;
+		  var titlemargintop = titleheight+dateheight+80+40;
+		  $(".front-page-container h2").css("margin-top", "-" + datemargintop + "px");
+		  $(".front-page-container h1").css("margin-top", "-" + titlemargintop + "px");
+		  //alert(titlemargintop);
+		  
         // JavaScript to be fired on the home page, after the init JS
       }
     },
