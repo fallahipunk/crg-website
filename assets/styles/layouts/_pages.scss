@@ -9,7 +9,7 @@
 
 .front-page-container {
 	max-width:100%;
-	background-color: blue;
+	//background-color: blue;
 
 // changed proper aspect ratio
 	img{
@@ -76,4 +76,23 @@
 	font-size: 18px;
 	}
 	
+	
+}
+
+// front page section seprating img from the newsletter form
+.gray-arrow{
+position: absolute;
+width: 100%;
+height:15px;
+background-color: $crg-gray;
+margin-top: -20px;
+ 	.glyphicon-triangle-bottom{
+		width: 100%;
+		color: $crg-gray;
+ 	}
+	.glyphicon-triangle-bottom:before{
+	font-size: 40px;
+    display:block;
+    text-align:center
+	}
 }

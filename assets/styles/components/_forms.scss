@@ -13,3 +13,12 @@
   @extend .btn;
   @extend .btn-default;
 }
+
+
+// Mailing List Form
+.mailing-list-form{
+    margin: auto;
+    width: $mailing-list-width;
+    //border: 3px solid green;
+    padding: 30px;
+}
