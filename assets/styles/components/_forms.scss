@@ -1,6 +1,10 @@
 // Search form
 .search-form {
   @extend .form-inline;
+  text-align: center;
+  width: $search-width;
+  margin: auto;
+  padding: 20px 0px 40px 0px;
 }
 .search-form label {
   font-weight: normal;
@@ -12,13 +16,30 @@
 .search-form .search-submit {
   @extend .btn;
   @extend .btn-default;
+  
+  
 }
 
 
 // Mailing List Form
 .mailing-list-form{
-    margin: auto;
+font-size: 20px;
     width: $mailing-list-width;
+	margin: auto;
     //border: 3px solid green;
     padding: 30px;
+	padding-bottom: 0px;
+	 text-align: center;
+	.btn-link{
+		font-size: 50px;
+		color: $crg-gray;
+	}
+	
+	input{
+	height: 40px;
+	padding: 10px;
+	font-size: 16px;
+	margin-top: 20px;
+	text-align: center;
+	}
 }

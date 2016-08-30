@@ -128,5 +128,12 @@ font-size: 16px;
 
 
 .social-media {
-border: 3px solid yellow;
+//border: 3px solid yellow;
+width: $search-width;
+margin: auto;
+text-align:center;
+ img{
+ padding: 15px;
+ padding-top: 50px;
+ }
 }

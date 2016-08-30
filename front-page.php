@@ -53,7 +53,18 @@
 	<div class="row">  
 		<!--   social media-->  <div   class="col-xs-12"> 
 			 <div class="social-media"> 
-				 Social Media
+				 	<a href="https://www.facebook.com/CRG-Gallery-17349246246/" target="_blank">
+						<img src="<?= get_template_directory_uri() . '/assets/images/social/fb.png'; ?>">
+					</a>
+					<a href="hhttps://twitter.com/intent/follow?source=followbutton&variant=1.0&screen_name=CRGGallery" target="_blank">
+						<img src="<?= get_template_directory_uri() . '/assets/images/social/twitter.png'; ?>">
+					</a>
+					<a href="https://www.instagram.com/crggallery/" target="_blank">
+						<img src="<?= get_template_directory_uri() . '/assets/images/social/instagram.png'; ?>">
+					</a>
+					<a href="http://crggallery.tumblr.com/" target="_blank">
+						<img src="<?= get_template_directory_uri() . '/assets/images/social/tumblr.png'; ?>">
+					</a>
 			 </div> 
 		 </div>
 	</div>
