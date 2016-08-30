@@ -11,33 +11,53 @@
   
   <div class="container-fluid">
     
-	<div   class="row">  <!--   Mailing   List-->  <div   class="col-xs-12">  <div   class
-="mailing-list-form"> <?php get_template_part('templates/form-newsletter');  // copied the
-form example from the book, will change it later ?> </div> </div>
-		
+	<div class="row">  
+		<!--   Mailing   List-->  <div   class="col-xs-12"> 
+			 <div class="mailing-list-form"> 
+				 <?php get_template_part('templates/form-newsletter');  ?>
+			 </div> 
+		 </div>
 	</div>
 	
-	<div class="row">
-		<!-- address-->
-		 <div class="col-xs-12 col-sm-6 col-md-4 address">
-		 address
-	 	</div>
-		<!-- google map -->
-		<div class="col-xs-12 col-sm-6 col-md-4 google-map">
-		google map
-		</div>
-		<!-- hours-->
-		<div class="col-xs-12 col-sm-12 col-md-4 hours">
-		hours</div>
-		
+	<div class="row">  
+		<!--  address -->  <div   class="col-xs-12 col-sm-6 col-md-4"> 
+			 <div class="address"> 
+				 195 Chrystie Street, New York, NY 10002
+			 </div> 
+		 </div>
+
+		<!--  google map -->  <div   class="col-xs-12 col-sm-6 col-md-4"> 
+			 <div class="google-map"> 
+				 google map
+			 </div> 
+		 </div>
+  
+		<!--   hours-->  <div   class="col-xs-12 col-md-4"> 
+			 <div class="hours"> 
+				 T - 212 229 2766
+				 info@crggallery.com
+
+				 Summer Schedule
+				 June / July
+				 Tuesday - Friday
+				 11am - 6pm
+
+				 August
+				 By appointment
+			 </div> 
+		 </div>
 	</div>
-	<!-- Social Media -->
-	<div class="col-xs-12 social-media">
-		social media
+	
+	<div class="row">  
+		<!--   social media-->  <div   class="col-xs-12"> 
+			 <div class="social-media"> 
+				 Social Media
+			 </div> 
+		 </div>
 	</div>
 	
  </div>
- </div>
+
  
 <?php endwhile; ?>
 
