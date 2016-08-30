@@ -98,16 +98,34 @@ margin-top: -20px;
 }
 
 .hours {
-border: 3px solid blue;
+font-size: 16px;
+//border: 3px solid blue;
+text-align: center;
+padding-top: 20px;
+
+@media (min-width: $screen-md-min) {
+text-align: left;
+padding-top: 0px;
 }
+
+}//hours
 
 .address {
-border: 3px solid red;
-}
+font-size: 16px;
+//border: 3px solid red;
+    text-align: center;
+	padding-top: 20px;
+	
+	@media (min-width: $screen-sm-min) {
+	text-align: right;
+	padding-top: 0px;
+	}
+}//address
 
 .google-map {
-border: 3px solid black;
+//border: 3px solid black;
 }
+
 
 .social-media {
 border: 3px solid yellow;
