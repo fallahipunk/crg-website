@@ -6,4 +6,3 @@
   <h1><?= Titles\title(); ?></h1>
 </div>
 <?php endif; ?>
-
