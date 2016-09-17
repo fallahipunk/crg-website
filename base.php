@@ -18,7 +18,7 @@ use Roots\Sage\Wrapper;
       do_action('get_header');
       get_template_part('templates/header');
     ?>
-	
+
 	<?php if (is_front_page()) :  // adding if statment for front page layout ?>
     <div class="wrap container front-page" role="document">
 			 <div class="content row front-page">
