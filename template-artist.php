@@ -100,7 +100,7 @@ jQuery( document ).ready(function($) {
           );  endwhile; endif; wp_reset_query();?>
 
           			<? if (is_array($press)) : ?>
-                <div class="col-sm-6 col-md-6 col-lg-5 pull-right-md pull-left-lg">
+                <div class="col-sm-6 col-md-6 col-lg-4 pull-right-md pull-left-lg">
                   <h4>Press</h4>
                   <div class="artist-press">
                   <?
@@ -149,7 +149,7 @@ jQuery( document ).ready(function($) {
             foreach ($itemsChunk as $items) :
           ?>
 
-          <div class="col-sm-5 col-md-6 col-lg-3">
+          <div class="col-sm-5 col-md-6 col-lg-4">
               <h4>Publications</h4>
               <div class="artist-publications">
                 <div class="row">
