@@ -5,6 +5,31 @@
 $pid = $post->ID;
 $postname = $post->post_title;
 ?>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery('.your-class').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: false,
+        fade: true,
+        customPaging: function(slider, i) {
+    var thumb = jQuery(slider.$slides[i]).data();
+    return '<a>'+(i+1)+'</a>';
+            },
+      });
+    });
+
+    var $status = jQuery('.pagingInfo');
+     var $slickElement = jQuery('.slider');
+
+     $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+         //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+         var i = (currentSlide ? currentSlide : 0) + 1;
+         $status.text(i + '/' + slick.slideCount);
+     });
+  </script>
+
 <script>
 jQuery( document ).ready(function($) {
   $('.expand-arrow').toggle(function() {
@@ -52,6 +77,8 @@ jQuery( document ).ready(function($) {
 })
 </script>
 
+
+
 <?php while (have_posts()) : the_post(); ?>
   <!-- Image for Header -->
   <div class="artist-page-container">
@@ -66,10 +93,40 @@ jQuery( document ).ready(function($) {
       <!-- Selected work -->
       <div class="col-lg-8">
         <h4>Selected Work</h4>
-        <img id="artist-page-carousel-demo" src="<?php echo get('selected_image'); ?>">
-  <!-- <?php echo get('selected_caption'); ?> -->
-      </div>
+          <?
+        	$items = get_group('Selected Work');
 
+        	//print_r($items);
+        	//$photoID = $_GET['photo'];
+
+
+        	if(count($items)) :
+
+        	$itemsChunk = array_chunk($items,1,true);
+
+        	?>
+        	<div class="your-class">
+
+        	<?
+        	foreach ($itemsChunk as $items) :
+        		?>
+        	<div style="widht:100%; height:500px;">
+        	<?
+
+
+        		foreach ($items as $key => $item) :
+        				?>
+                <img style="width:100%; object-fit:contain" src="<?=$item['selected_image'][1][o];?>">
+        				<?
+        		endforeach;
+        	?>
+        </div>
+        	<?
+        		endforeach;
+        	endif; //count/items
+        	?>
+        </div>
+      </div>
       <!-- Biography -->
       <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 pull-right-lg">
         <h4>Biography</h4>
@@ -192,4 +249,5 @@ jQuery( document ).ready(function($) {
 
 
 </div>
+
 <?php endwhile; ?>
