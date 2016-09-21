@@ -81,6 +81,7 @@ jQuery( document ).ready(function($) {
         </button>
         </div>
         <div class="cheat clearfix visible-lg-block"></div>
+        <div class="cheat clearfix visible-xs-block"></div>
 
       <!-- Press -->
       <?
