@@ -5,41 +5,79 @@
 $pid = $post->ID;
 $postname = $post->post_title;
 ?>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery('.your-class').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: false,
+        fade: true,
+        customPaging: function(slider, i) {
+    var thumb = jQuery(slider.$slides[i]).data();
+    return '<a>'+(i+1)+'</a>';
+            },
+      });
+    });
+
+    var $status = jQuery('.pagingInfo');
+     var $slickElement = jQuery('.slider');
+
+     $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+         //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+         var i = (currentSlide ? currentSlide : 0) + 1;
+         $status.text(i + '/' + slick.slideCount);
+     });
+  </script>
+
 <script>
 jQuery( document ).ready(function($) {
-  $('.more-biography').toggle(function() {
-      $('.artist-biography').addClass("expand");
-      $('.expand-biography').removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
-      $('.cheat').removeClass("clearfix");
+  $('.expand-arrow').toggle(function() {
+
+    var e = $(this).closest("div").find('div');
+    var a = $(this).children("span");
+    var b = $(this).closest("div").next(".cheat");
+
+
+      $(e).addClass("expand");
+      $(a).removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
+      $(b).removeClass("clearfix");
 
     }, function () {
-  $(".artist-biography").removeClass("expand");
-  $('.expand-biography').removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
-  $('.cheat').addClass("clearfix");
+  var e = $(this).closest("div").find('div');
+  var a = $(this).children("span");
+  var b = $(this).closest("div").next(".cheat");
+
+
+  $(e).removeClass("expand");
+  $(a).removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
+  $(b).addClass("clearfix");
   });
 
-//Press-expand
-  $('.more-press').toggle(function() {
-      $('.artist-press').addClass("expand");
-      $('.expand-press').removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
-
-    }, function () {
-  $(".artist-press").removeClass("expand");
-  $('.expand-press').removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
-  });
-
-  //Events-expand
-  $('.more-events').toggle(function() {
-      $('.artist-events').addClass("expand");
-      $('.expand-events').removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
-
-    }, function () {
-  $(".artist-events").removeClass("expand");
-  $('.expand-events').removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
-  });
+// //Press-expand
+//   $('.more-press').toggle(function() {
+//       $('.artist-press').addClass("expand");
+//       $('.expand-press').removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
+//
+//     }, function () {
+//   $(".artist-press").removeClass("expand");
+//   $('.expand-press').removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
+//   });
+//
+//   //Events-expand
+//   $('.more-events').toggle(function() {
+//       $('.artist-events').addClass("expand");
+//       $('.expand-events').removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
+//
+//     }, function () {
+//   $(".artist-events").removeClass("expand");
+//   $('.expand-events').removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
+//   });
 
 })
 </script>
+
+
 
 <?php while (have_posts()) : the_post(); ?>
   <!-- Image for Header -->
@@ -55,21 +93,53 @@ jQuery( document ).ready(function($) {
       <!-- Selected work -->
       <div class="col-lg-8">
         <h4>Selected Work</h4>
-        <img id="artist-page-carousel-demo" src="<?php echo get('selected_image'); ?>">
-  <!-- <?php echo get('selected_caption'); ?> -->
-      </div>
+          <?
+        	$items = get_group('Selected Work');
 
+        	//print_r($items);
+        	//$photoID = $_GET['photo'];
+
+
+        	if(count($items)) :
+
+        	$itemsChunk = array_chunk($items,1,true);
+
+        	?>
+        	<div class="your-class">
+
+        	<?
+        	foreach ($itemsChunk as $items) :
+        		?>
+        	<div style="widht:100%; height:500px;">
+        	<?
+
+
+        		foreach ($items as $key => $item) :
+        				?>
+                <img style="width:100%; object-fit:contain" src="<?=$item['selected_image'][1][o];?>">
+        				<?
+        		endforeach;
+        	?>
+        </div>
+        	<?
+        		endforeach;
+        	endif; //count/items
+        	?>
+        </div>
+      </div>
       <!-- Biography -->
-      <div class="col-xs-12 col-sm-10 col-md-6 col-lg-4 pull-right-lg">
+      <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 pull-right-lg">
         <h4>Biography</h4>
         <div class="artist-biography">
         <?=get('bio');?>
         </div>
-        <button  type="button" class="btn btn-link more-biography pull-right" >
-          <span class="glyphicon glyphicon-menu-down expand-biography expand-arrow"></span>
+        <button  type="button" class="btn btn-link expand-arrow pull-right" >
+          <span class="glyphicon glyphicon-menu-down"></span>
         </button>
         </div>
         <div class="cheat clearfix visible-lg-block"></div>
+        <div class="cheat clearfix visible-xs-block"></div>
+
       <!-- Press -->
       <?
           query_posts('post_parent=61&meta_key=artist&meta_value='.$pid.'&orderby=date&order=DESC&showposts=-1&post_type=page');
@@ -87,7 +157,7 @@ jQuery( document ).ready(function($) {
           );  endwhile; endif; wp_reset_query();?>
 
           			<? if (is_array($press)) : ?>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-sm-6 col-md-6 col-lg-4 pull-right-md pull-left-lg">
                   <h4>Press</h4>
                   <div class="artist-press">
                   <?
@@ -105,57 +175,64 @@ jQuery( document ).ready(function($) {
 
             <? endforeach; endforeach; ?>
           </div>
-            <button  type="button" class="btn btn-link more-press pull-right" >
-              <span class="glyphicon glyphicon-menu-down expand-arrow expand-press"></span>
+            <button  type="button" class="btn btn-link expand-arrow pull-right" >
+              <span class="glyphicon glyphicon-menu-down"></span>
             </button>
           </div>
 
           <? endif; ?>
+          <div class="cheat clearfix visible-sm-block visible-md-block"></div>
+          <div class="cheat clearfix visible-sm-block"></div>
 
-      <!-- Publications -->
-      <?
-      query_posts('post_parent=35&meta_key=related_artist&meta_value='.$pid.'&orderby=date&order=DESC&showposts=-1&post_type=page');
+          <!-- Publications -->
+          <?
+          query_posts('post_parent=35&meta_key=related_artist&meta_value='.$pid.'&orderby=date&order=DESC&showposts=-1&post_type=page');
 
-      if (have_posts()) : while (have_posts()) : the_post();
+          if (have_posts()) : while (have_posts()) : the_post();
 
-      $args = array("h" => 150, "w" => 130);
-      $itemsArray[] = array(
-        'title'=>get_the_title(),
-        'artists'=>get_field_duplicate('related_artist'),
-        'permalink'=>get_permalink(),
-        'thumb'=>get_image('image',1,1,1,NULL,$args),
-        'year'=>get('year')
-      );
+          $args = array("h" => 110, "w" => 90);
+          $itemsArray[] = array(
+            'title'=>get_the_title(),
+            'artists'=>get_field_duplicate('related_artist'),
+            'permalink'=>get_permalink(),
+            'thumb'=>get_image('image',1,1,1,NULL,$args),
+            'year'=>get('year')
+          );
 
-      endwhile; endif; wp_reset_query();
+          endwhile; endif; wp_reset_query();
 
-      if(count($itemsArray)) :
-        $itemsChunk = array_chunk($itemsArray,3,true);
-        foreach ($itemsChunk as $items) :
-      ?>
+          if(count($itemsArray)) :
+            $itemsChunk = array_chunk($itemsArray,10,true);
+            foreach ($itemsChunk as $items) :
+          ?>
 
-        <div class="col-md-6 col-lg-4">
-          <h4>Publications</h4>
-            <div class="row">
-              <? foreach ($items as $item) : //print_r($item);
-                $artists = "";
-                foreach ($item['artists'] as $artist) :
-                  $artists .= get_the_title($artist)."<br/>";
-                endforeach; ?>
-                <div class="col-lg-6">
-                  <a href="<?=$item['permalink'];?>"><?=$item['thumb'];?></a><br>
-                  <span><a href="<?=$item['permalink'];?>" class="mmactive"><?=$item['title'];?></a><span class="exdate"><br><?=$artists;?><?=$item['year'];?></span></span></div>
+          <div class="col-sm-5 col-md-6 col-lg-4">
+              <h4>Publications</h4>
+              <div class="artist-publications">
+                <div class="row">
+                  <? foreach ($items as $item) : //print_r($item);
+                    $artists = "";
+                    foreach ($item['artists'] as $artist) :
+                      $artists .= get_the_title($artist)."<br/>";
+                    endforeach; ?>
+                    <div class="col-lg-6">
+                      <a href="<?=$item['permalink'];?>"><?=$item['thumb'];?></a><br>
+                      <span><a href="<?=$item['permalink'];?>"><?=$item['title'];?></a><span><br><?=$artists;?><?=$item['year'];?></span></span>
+                    </div>
+                    <? endforeach; ?>
+                  </div>
                 <? endforeach; ?>
               </div>
-            <? endforeach; ?>
-          </div>
-        <? else: endif;?>
-
+              <button  type="button" class="btn btn-link expand-arrow pull-right" >
+                <span class="glyphicon glyphicon-menu-down"></span>
+              </button>
+            </div>
+            <? else: endif;?>
 
       <!-- Events -->
       <? query_posts('cat=1&meta_key=related_artist&meta_value='.$pid.'&orderby=date&order=DESC&showposts=-1');
       if (have_posts()) : ?>
-      <div class="col-md-6 col-lg-4">
+      <div class="col-sm-5 col-md-6 col-lg-4">
         <h4>Events</h4>
         <div class="artist-events">
         <? while (have_posts()) : the_post(); ?>
@@ -163,11 +240,14 @@ jQuery( document ).ready(function($) {
           <? edit_post_link("[edit]", "<br/>"); ?>
         <? endwhile;?>
       </div>
-      <button  type="button" class="btn btn-link more-events pull-right" >
-        <span class="glyphicon glyphicon-menu-down expand-arrow expand-events"></span>
+      <button  type="button" class="btn btn-link expand-arrow pull-right" >
+        <span class="glyphicon glyphicon-menu-down"></span>
       </button>
       </div>
       <? endif; wp_reset_query();?>
 
+
+
 </div>
+
 <?php endwhile; ?>

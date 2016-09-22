@@ -265,20 +265,38 @@ text-align:center;
 // Proper floating for grid divs
 @media (min-width: $screen-sm-min) {
 .pull-right-sm {
-  float: right;
+	float: right;
 }
+
 }
 @media (min-width: $screen-md-min) {
 .pull-right-md {
-  float: right;
+	float: right;
 }
+
 }
 @media (min-width: $screen-lg-min) {
 .pull-right-lg {
   float: right;
 }
 }
+@media (min-width: $screen-sm-min) {
+.pull-left-sm {
+	float: left;
+}
 
+}
+@media (min-width: $screen-md-min) {
+.pull-left-md {
+	float: left;
+}
+
+}
+@media (min-width: $screen-lg-min) {
+.pull-left-lg {
+  float: left;
+}
+}
 .expand-arrow {
 	font-size:25px;
 	color: grey;
@@ -287,6 +305,7 @@ text-align:center;
 .artist-press {
 	height:350px;
 	overflow: hidden;
+	padding-right:50px;
 }
 
 .artist-events {
@@ -296,4 +315,14 @@ text-align:center;
 
 .expand {
 	height:auto !important;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.artist-publications {
+	height: 205px;
+	overflow: hidden;
 }
