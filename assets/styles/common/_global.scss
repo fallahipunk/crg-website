@@ -2,4 +2,13 @@
 
 body{
 font-family: 'Hind', sans-serif;
+	a{
+	color:$crg-gray;
+	}
+	
+	  a:hover, a:active, a:focus {
+	  color: #000;
+	  }
+
 }
+

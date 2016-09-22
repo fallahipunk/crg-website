@@ -39,13 +39,13 @@
 
 		<!--   hours-->  <div   class="col-xs-12 col-md-4">
 			 <div class="hours">
-				 Summer Schedule<br>
-				 June / July<br>
-				 Tuesday - Friday<br>
-				 11am - 6pm<br>
-				 <br>
-				 August<br>
-				 By appointment<br>
+
+			<?php
+			   $post = get_page(12789);
+			   $content = apply_filters('the_content', $post->post_content);
+			   echo $content;
+			?>
+			
 			 </div>
 		 </div>
 	</div>
