@@ -41,7 +41,7 @@
 			 <div class="hours">
 
 			<?php
-			   $post = get_page(12789);
+			   $post = get_page(48);
 			   $content = apply_filters('the_content', $post->post_content);
 			   echo $content;
 			?>
