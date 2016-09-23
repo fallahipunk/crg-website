@@ -33,10 +33,11 @@ $postname = $post->post_title;
             },
             responsive: [
                 {
-                  breakpoint: 500,
+                  breakpoint: 1024,
                   settings: {
-                      mobileFirst: true,
-                      arrows: true,
+                      // adaptiveHeight: true,
+                      // mobileFirst: true,
+                      // arrows: true,
                       // variableWidth: true,
                   }
                 }
