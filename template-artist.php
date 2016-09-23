@@ -21,7 +21,7 @@ $postname = $post->post_title;
 
 //Selected Work slider
     jQuery(document).ready(function(){
-      jQuery('.your-class').slick({
+      jQuery('.selected-work-slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
@@ -29,8 +29,19 @@ $postname = $post->post_title;
         fade: true,
         customPaging: function(slider, i) {
     var thumb = jQuery(slider.$slides[i]).data();
-    return '<a>'+(i+1)+'</a>';
+    return '<div class="numberCircle"><div class="height_fix"></div><a class="content">'+(i+1)+'</a></div>';
             },
+            responsive: [
+                {
+                  breakpoint: 1024,
+                  settings: {
+                      // adaptiveHeight: true,
+                      // mobileFirst: true,
+                      // arrows: true,
+                      // variableWidth: true,
+                  }
+                }
+              ]
       });
     });
 
@@ -121,18 +132,18 @@ if($content.hasOverflow()) {
         	$itemsChunk = array_chunk($items,1,true);
 
         	?>
-        	<div class="your-class">
+        	<div class="selected-work-slider">
 
         	<?
         	foreach ($itemsChunk as $items) :
         		?>
-        	<div style="widht:100%; height:500px;">
+        	<div class="selected-work-slider-container">
         	<?
 
 
         		foreach ($items as $key => $item) :
         				?>
-                <img style="width:100%; object-fit:contain" src="<?=$item['selected_image'][1][o];?>">
+                <img src="<?=$item['selected_image'][1][o];?>">
         				<?
         		endforeach;
         	?>

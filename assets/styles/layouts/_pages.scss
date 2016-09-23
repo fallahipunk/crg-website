@@ -164,104 +164,7 @@ text-align:center;
  }
 }
 
-
-//////
-// Layout for template-artist.php
-////
-.artist-page-container {
-	max-width:100%;
-	margin-bottom: 100px;
-	position: relative;
-////
-// it is not obvious what this code for, pending for deletion
-////
-// changed proper aspect ratio
-	// img {
-	// 	width: 100%;
-	// 	height: auto
-	// }
-
-	img {
-		width:100%;
-		height: $artist-cover-img-height-mob;
-		object-fit: cover;
-
-		@media (min-width: $screen-sm-min) {
-			height: $artist-cover-img-height-sm;
-		}
-
-		@media (min-width: $screen-md-min) {
-			height: $artist-cover-img-height-md;
-		}
-
-		@media (min-width: $screen-lg-min) {
-			height: $artist-cover-img-height-lg;
-		}
-	}
-
-	// show artist name
-	h1 {
-		color: white;
-	  padding: 20px;
-		background-color: $title-black-bg;
-		margin-top: 0;
-		margin-bottom: 0;
-
-		a, a:hover{
-			color:white;
-			text-decoration: none;
-		}
-
-
-		margin-left:0;
-		margin-right:auto;
-		width: 100%;
-	} // h1, h2
-
-	h1{
-		// @media (min-width: $screen-xs-min) {
-		// width: 300px;
-		// }
-	@media (min-width: $screen-xs-min) {
-	width: $desktop-menu-width;
-	}
-
-	font-size: 30px;
-	}
-
-}
-
-.page-header {
-	width: 100%;
-	position: absolute;
-	bottom:0;
-	border-bottom:0;
-	margin:0;
-	padding:0;
-}
-
-.artist-biography {
-	height:431px;
-	overflow: hidden;;
-}
-
-
-
-
-.artist-biography ul {
-	list-style: none;
-	padding: 0;
-
-}
-
-#artist-page-carousel-demo {
-	width:100%;
-	height:500px;
-	object-fit: cover;
-}
-
-
-// Proper floating for grid divs
+// Additional classes for proper floating for grid divs
 @media (min-width: $screen-sm-min) {
 .pull-right-sm {
 	float: right;
@@ -296,37 +199,8 @@ text-align:center;
   float: left;
 }
 }
-.expand-arrow {
-	font-size:25px;
-	color: grey;
-}
-
-.artist-press {
-	height:343px;
-	overflow: hidden;
-}
-
-.artist-events {
-	height: 320px;
-	overflow: hidden;
-}
-
-.expand {
-	height:auto !important;
-}
 
 .col-centered{
     float: none;
     margin: 0 auto;
-}
-
-.artist-publications {
-	height: 205px;
-	overflow: hidden;
-}
-
-.artist-publications {
-	.col-lg-6 {
-	width: 49%;
-}
 }

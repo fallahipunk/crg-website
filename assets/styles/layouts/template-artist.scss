@@ -1,0 +1,192 @@
+//////
+// Layout for template-artist.php
+////
+.artist-page-container {
+	max-width:100%;
+	margin-bottom: 50px;
+	position: relative;
+
+	img {
+		width:100%;
+		height: $artist-cover-img-height-mob;
+		object-fit: cover;
+
+		@media (min-width: $screen-sm-min) {
+			height: $artist-cover-img-height-sm;
+		}
+
+		@media (min-width: $screen-md-min) {
+			height: $artist-cover-img-height-md;
+		}
+
+		@media (min-width: $screen-lg-min) {
+			height: $artist-cover-img-height-lg;
+		}
+	}
+
+	// show artist name
+	h1 {
+		color: white;
+	  padding: 20px;
+		background-color: $title-black-bg;
+		margin-top: 0;
+		margin-bottom: 0;
+
+		a, a:hover{
+			color:white;
+			text-decoration: none;
+		}
+
+
+		margin-left:0;
+		margin-right:auto;
+		width: 100%;
+	} // h1, h2
+
+	h1{
+		// @media (min-width: $screen-xs-min) {
+		// width: 300px;
+		// }
+	@media (min-width: $screen-xs-min) {
+	width: $desktop-menu-width;
+	}
+
+	font-size: 30px;
+	}
+
+}
+
+.page-header {
+	width: 100%;
+	position: absolute;
+	bottom:0;
+	border-bottom:0;
+	margin:0;
+	padding:0;
+}
+
+.artist-biography {
+	height:431px;
+	overflow: hidden;;
+}
+
+.artist-biography ul {
+	list-style: none;
+	padding: 0;
+
+}
+
+.artist-press {
+	height:343px;
+	overflow: hidden;
+}
+
+.artist-events {
+	height: 320px;
+	overflow: hidden;
+}
+
+.artist-publications {
+	height: 215px;
+	overflow: hidden;
+
+	.col-lg-6 { //fix for the publications grid
+	width: 49%;
+  margin-bottom: 0;
+  margin-top: 30px;
+	}
+
+  .col-lg-6:first-child, .col-lg-6:first-child + div {
+    margin-top: 0;
+  }
+}
+
+//Arrows
+.expand-arrow {
+	font-size:25px;
+	color: grey;
+}
+
+.expand {
+	height:auto !important;
+}
+
+//Slider
+.slick-dots {
+	bottom: auto;
+  position: relative;
+
+  & a:hover {
+    text-decoration: none;
+  }
+
+  & li {
+    margin:7px 10px;
+  }
+  //
+  // & li:last-child {
+  //   margin-right:0;
+  // }
+
+  .numberCircle {
+    -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      width: 30px;
+      padding: 8px;
+      font-size: 14px;
+      line-height: 1em;
+      border: 1px solid #888;
+      position: relative;
+
+      &:hover {
+        border: 2px solid #444;
+        font-weight: bold;
+      }
+
+    }
+
+    .numberCircle .height_fix {
+      margin-top: 100%;
+  }
+
+  .numberCircle .content {
+    color: #888;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin-top: -7px; /* Note, this must be half the font size */
+  }
+
+  .slick-active .numberCircle {
+  border: 2px solid #000;
+  font-weight: bold;
+  }
+
+  .slick-active .numberCircle .content {
+  color: #444;
+  }
+
+}
+
+.selected-work-slider-container {
+	width:100%;
+  height: 250px;
+
+  @media (min-width: $screen-xs-min) {
+    height: 400px;
+  }
+
+  @media (min-width: $screen-md-min) {
+    height: 500px;
+  }
+
+	img {
+		width:100%;
+		height:100%;
+		object-fit:contain;
+	}
+}
