@@ -241,8 +241,8 @@ text-align:center;
 }
 
 .artist-biography {
-	height:433px;
-	overflow: hidden;
+	height:431px;
+	overflow: hidden;;
 }
 
 
@@ -302,9 +302,8 @@ text-align:center;
 }
 
 .artist-press {
-	height:350px;
+	height:343px;
 	overflow: hidden;
-	padding-right:50px;
 }
 
 .artist-events {
@@ -324,4 +323,10 @@ text-align:center;
 .artist-publications {
 	height: 205px;
 	overflow: hidden;
+}
+
+.artist-publications {
+	.col-lg-6 {
+	width: 49%;
+}
 }

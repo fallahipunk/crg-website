@@ -6,6 +6,20 @@ $pid = $post->ID;
 $postname = $post->post_title;
 ?>
 <script type="text/javascript">
+//Script for firing arrows
+(function($) {
+  $.fn.hasOverflow = function() {
+    var $this = $(this);
+    return $this[0].scrollHeight > $this.outerHeight() ||
+        $this[0].scrollWidth > $this.outerWidth();
+  };
+})(jQuery);
+</script>
+
+
+<script type="text/javascript">
+
+//Selected Work slider
     jQuery(document).ready(function(){
       jQuery('.your-class').slick({
         slidesToShow: 1,
@@ -32,6 +46,8 @@ $postname = $post->post_title;
 
 <script>
 jQuery( document ).ready(function($) {
+
+  //Arrows functions
   $('.expand-arrow').toggle(function() {
 
     var e = $(this).closest("div").find('div');
@@ -54,27 +70,27 @@ jQuery( document ).ready(function($) {
   $(b).addClass("clearfix");
   });
 
-// //Press-expand
-//   $('.more-press').toggle(function() {
-//       $('.artist-press').addClass("expand");
-//       $('.expand-press').removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
-//
-//     }, function () {
-//   $(".artist-press").removeClass("expand");
-//   $('.expand-press').removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
-//   });
-//
-//   //Events-expand
-//   $('.more-events').toggle(function() {
-//       $('.artist-events').addClass("expand");
-//       $('.expand-events').removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
-//
-//     }, function () {
-//   $(".artist-events").removeClass("expand");
-//   $('.expand-events').removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
-//   });
 
-})
+//Firing arrows
+var $content = jQuery('.artist-biography');
+if($content.hasOverflow()) {
+ var e = jQuery($content).closest("div").next(".expand-arrow");
+ jQuery(e).removeClass("hidden");}
+ var $content = jQuery('.artist-press');
+if($content.hasOverflow()) {
+ var e = jQuery($content).closest("div").next(".expand-arrow");
+ jQuery(e).removeClass("hidden");}
+ var $content = jQuery('.artist-events');
+if($content.hasOverflow()) {
+ var e = jQuery($content).closest("div").next(".expand-arrow");
+ jQuery(e).removeClass("hidden");}
+ var $content = jQuery('.artist-publications');
+if($content.hasOverflow()) {
+ var e = jQuery($content).closest("div").next(".expand-arrow");
+ jQuery(e).removeClass("hidden");}
+
+
+  })
 </script>
 
 
@@ -133,7 +149,7 @@ jQuery( document ).ready(function($) {
         <div class="artist-biography">
         <?=get('bio');?>
         </div>
-        <button  type="button" class="btn btn-link expand-arrow pull-right" >
+        <button  type="button" class="btn btn-link expand-arrow pull-right hidden" >
           <span class="glyphicon glyphicon-menu-down"></span>
         </button>
         </div>
@@ -161,21 +177,25 @@ jQuery( document ).ready(function($) {
                   <h4>Press</h4>
                   <div class="artist-press">
                   <?
-          						foreach ($press as $year => $pressArray) : //print_r($exhibition);
 
-          						$count = 1;
-          							foreach ($pressArray as $press) :
+          						foreach ($press as $year => $pressArray) : //print_r($exhibition);
+                        $count = 1;
+                        foreach ($pressArray as $press) :  //slices amount in year period
+
           							$yearGroup = ($count == 1) ? $year : "";
           							$count++;
-
           					?>
 
           		<div style="margin-bottom:10px;"><b><?=$yearGroup;?></b></div>
               <div style="margin-bottom:10px;"><b><a href="<?=$press['id'];?>"><?=$press['title'];?></a></b> <?php edit_post_link("[edit]", "<br/>"); ?><span class="exdate"><i><?=$press['subhead'];?></i> <?=$press['date'];?></span></div>
+            <? endforeach; ?>
 
-            <? endforeach; endforeach; ?>
+        <?  endforeach;
+?>
+
           </div>
-            <button  type="button" class="btn btn-link expand-arrow pull-right" >
+
+            <button  type="button" class="btn btn-link expand-arrow pull-right hidden" >
               <span class="glyphicon glyphicon-menu-down"></span>
             </button>
           </div>
@@ -208,8 +228,8 @@ jQuery( document ).ready(function($) {
 
           <div class="col-sm-5 col-md-6 col-lg-4">
               <h4>Publications</h4>
-              <div class="artist-publications">
-                <div class="row">
+
+                <div class="row artist-publications">
                   <? foreach ($items as $item) : //print_r($item);
                     $artists = "";
                     foreach ($item['artists'] as $artist) :
@@ -220,10 +240,10 @@ jQuery( document ).ready(function($) {
                       <span><a href="<?=$item['permalink'];?>"><?=$item['title'];?></a><span><br><?=$artists;?><?=$item['year'];?></span></span>
                     </div>
                     <? endforeach; ?>
-                  </div>
+
                 <? endforeach; ?>
               </div>
-              <button  type="button" class="btn btn-link expand-arrow pull-right" >
+              <button  type="button" class="btn btn-link expand-arrow pull-right hidden" >
                 <span class="glyphicon glyphicon-menu-down"></span>
               </button>
             </div>
@@ -240,7 +260,7 @@ jQuery( document ).ready(function($) {
           <? edit_post_link("[edit]", "<br/>"); ?>
         <? endwhile;?>
       </div>
-      <button  type="button" class="btn btn-link expand-arrow pull-right" >
+      <button  type="button" class="btn btn-link expand-arrow pull-right hidden" >
         <span class="glyphicon glyphicon-menu-down"></span>
       </button>
       </div>
