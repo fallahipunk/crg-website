@@ -98,7 +98,7 @@ if($content.hasOverflow()) {
 <?php while (have_posts()) : the_post(); ?>
   <!-- Image for Header -->
   <div class="artist-page-container">
-    <img src="<?php echo get('image'); ?>">
+    <img src=<?php echo get('image'); ?>>
     <?php get_template_part('templates/page', 'header'); ?>
   </div>
 
