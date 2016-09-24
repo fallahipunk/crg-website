@@ -258,12 +258,14 @@ if($content.hasOverflow()) {
                 <span class="glyphicon glyphicon-menu-down"></span>
               </button>
             </div>
+            <div class="clearfix visible-sm-block visible-md-block"></div>
+
             <? else: endif;?>
 
       <!-- Events -->
       <? query_posts('cat=1&meta_key=related_artist&meta_value='.$pid.'&orderby=date&order=DESC&showposts=-1');
       if (have_posts()) : ?>
-      <div class="col-sm-5 col-md-6 col-lg-4">
+      <div class="col-sm-5 col-md-5 col-lg-4">
         <h4>Events</h4>
         <div class="artist-events">
         <? while (have_posts()) : the_post(); ?>
