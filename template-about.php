@@ -12,13 +12,14 @@
  				</div>
 					<div   class="col-md-6">
 											<a href="https://www.google.com/maps/place/CRG+Gallery/@40.7221163,-73.9943267,17z/data=!3m1!4b1!4m5!3m4!1s0x89c259c7f0a4a6d1:0xeecfca023ef23f1b!8m2!3d40.7221123!4d-73.9921326" target="_blank">
-							<h1> 195 Chrystie Street,<br> New York, NY 10002</h1>
+							<h3> 195 Chrystie Street,<br> New York, NY 10002</h3>
 						</a>
 					</div>
 					<div   class="col-md-6">
-						<h3>T – 212 229 2766<br>
+						<br>
+						<h4>T – 212 229 2766<br>
 							F – 212 229 2788<br>
-							<a href = "mailto:info@crggallery.com">info@crggallery.com </a></h3>
+							<a href = "mailto:info@crggallery.com">info@crggallery.com </a></h4>
 						</div>
 					</div>
 				</div>
@@ -40,15 +41,17 @@
  <div class="child-pages">
 	 
   <div   class="col-md-6">
- <h2><?php the_title(); ?></h2>
+ <h4><?php the_title(); ?></h4>
  <?php the_content();?>
    </div>
   </div>
 
  <?php
  endforeach;
- 
- 
  } ?>
+ 
+ <div class="mailing-list-form">
+	 <?php get_template_part('templates/form-newsletter');  ?>
+ </div>
  
 </div> 

@@ -14,23 +14,27 @@
  }
 }
 ?>
-
    <?php
    $my_wp_query = new WP_Query();
-   $all_wp_pages = $my_wp_query->query(array('post_type' => 'page', 'posts_per_page' => -1));
+   $all_wp_pages = $my_wp_query->query(array('post_type' => 'page','orderby' => 'title','order' => 'ASC','posts_per_page' => -1));
    $artist_list = get_page_children(25, $all_wp_pages);
-   $thumb_size = array("h" => 180, "w" => 250);
+   $thumb_size = array("h" => 120, "w" => 180);
     foreach($artist_list as $artist){
 		   	?>
 		
-			<div   class="col-xs-6 col-sm-4 col-md-3">
-				 <?php echo get_image('image',1,1,1,$artist->ID,$thumb_size); ?>
-		<h4><a href="<?php echo get_page_link( $artist->ID ); ?>"><?php echo $artist->post_title; ?></a></h4>
+			<div   class="col-xs-6 col-md-4 col-lg-3">
+				
+				<a href="<?php echo get_page_link( $artist->ID ); ?>"> <?php echo get_image('image',1,1,1,$artist->ID,$thumb_size); ?>
+		<br><br>
+		<div class="artist-link">
+			<a href="<?php echo get_page_link( $artist->ID ); ?>"><?php echo $artist->post_title; ?></a>
+		</div>
 	</div>
 	  <?php
 	}
    
  	?>
+
  
    
  

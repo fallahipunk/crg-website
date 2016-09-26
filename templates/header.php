@@ -12,9 +12,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-  	  <div class="hamburger-nav-address">
-  		  195 Chrystie St.
-  	  </div>
+
       </button>
   </div>
 
@@ -35,7 +33,5 @@
     </nav>
 </div>
   </div>
-  <div class="desktop-nav-address hidden-xs">
-  	195 Chrystie Street, New York
-  </div>
+
 </header>

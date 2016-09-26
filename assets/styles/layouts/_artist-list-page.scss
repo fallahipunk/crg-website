@@ -1,3 +1,14 @@
 .artist-list{
 margin-top: 100px;
+	@media (min-width: $screen-md-min) {
+	margin-top: 200px;
+	}
+a{
+font-size: 16px;
+}
+
+.artist-link{
+height: 60px;
+}
+
 }
