@@ -3,6 +3,9 @@
   // This file assumes that you have included the nav walker from https://github.com/twittem/wp-bootstrap-navwalker
   // somewhere in your theme.
 ?>
+<script type="text/javascript">
+    var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>"; //Need this for proper ajax requests
+</script>
 
 <header class="banner navbar navbar-default navbar-fixed-top" role="banner">
   <div class="container-fluid">

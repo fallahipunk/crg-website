@@ -65,29 +65,29 @@
 	padding:0;
 }
 
-.artist-biography {
+#biography {
 	height:431px;
-	overflow: hidden;;
+	overflow: hidden;
 }
 
-.artist-biography ul {
+#biography ul {
 	list-style: none;
 	padding: 0;
-
+	& strong {
+		display:block;
+		font-weight: normal;
+	}
 }
 
-.artist-press {
-	height:343px;
+#press {
 	overflow: hidden;
 }
 
-.artist-events {
-	height: 320px;
+#events {
 	overflow: hidden;
 }
 
-.artist-publications {
-	height: 215px;
+#publications {
 	overflow: hidden;
 
 	.col-lg-6 { //fix for the publications grid

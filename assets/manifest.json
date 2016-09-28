@@ -19,9 +19,12 @@
     },
     "jquery.js": {
       "bower": ["jquery"]
+    },
+    "spin.js":  {
+      "bower": ["spin.js"]
     }
   },
   "config": {
-    "devUrl": "http://example.dev"
+    "devUrl": "http://127.0.0.1:8888"
   }
 }

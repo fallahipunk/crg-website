@@ -3,22 +3,107 @@
  * Template Name: Artist
  */
 $pid = $post->ID;
-$postname = $post->post_title;
 ?>
-<script type="text/javascript">
-//Script for firing arrows
-(function($) {
+<script>
+jQuery(document).ready(function($)
+{
+// Arrows behavior after click
+  $('.expand-arrow').toggle(function() {
+
+    var e = $(this).closest("div").find('div');
+    var a = $(this).children("span");
+    var b = $(this).closest("div").next(".cheat");
+
+    // Getting the heights of the container
+    var height = $(e[0]).outerHeight();
+
+      $(e[0]).css({"height": height}); // injecting the heights into css
+      $(e[0]).addClass("expand");
+      $(a).removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
+      $(b).removeClass("clearfix");
+
+    }, function () {
+  var e = $(this).closest("div").find('div');
+  var a = $(this).children("span");
+  var b = $(this).closest("div").next(".cheat");
+
+
+  $(e[0]).removeClass("expand");
+  $(a).removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
+  $(b).addClass("clearfix");
+  });
+
+// Maintaining visibility of the arrows which are not related to any ajax containers (e.g. Biography)
   $.fn.hasOverflow = function() {
-    var $this = $(this);
-    return $this[0].scrollHeight > $this.outerHeight() ||
-        $this[0].scrollWidth > $this.outerWidth();
-  };
-})(jQuery);
+  var $this = $(this);
+  return $this[0].scrollHeight > $this.outerHeight() ||
+      $this[0].scrollWidth > $this.outerWidth();
+    };
+
+  var $content = jQuery('#biography');
+  if($content.hasOverflow()) {
+   var e = jQuery($content).closest("div").next(".expand-arrow");
+   jQuery(e).removeClass("hidden");}
+
+// Ajax script
+  jQuery('.fire-ajax').one('click', function() { //one means that the function will work only once
+    var theClass = this; //needed within the ajax call
+
+    $(this).addClass("invisible"); //hiding container's arrow during the call (while spinner spins)
+
+    var action = jQuery(this).closest("div").find('div'); // looking for the right div
+    var idName = jQuery(action).attr('id'); // getting id attribute from that div
+
+    // Spinner options
+    var opts = {
+      lines: 13 // The number of lines to draw
+    , length: 24 // The length of each line
+    , width: 12 // The line thickness
+    , radius: 25 // The radius of the inner circle
+    , scale: 0.25 // Scales overall size of the spinner
+    , corners: 1 // Corner roundness (0..1)
+    , color: '#000' // #rgb or #rrggbb or array of colors
+    , opacity: 0.25 // Opacity of the lines
+    , rotate: 0 // The rotation offset
+    , direction: 1 // 1: clockwise, -1: counterclockwise
+    , speed: 1 // Rounds per second
+    , trail: 60 // Afterglow percentage
+    , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+    , zIndex: 2e9 // The z-index (defaults to 2000000000)
+    , className: 'spinner' // The CSS class to assign to the spinner
+    , top: '95%' // Top position relative to parent
+    , left: '50%' // Left position relative to parent
+    , shadow: false // Whether to render a shadow
+    , hwaccel: false // Whether to use hardware acceleration
+    , position: 'absolute' // Element positioning
+    }
+
+    // Spinner
+    var target = jQuery('#' + idName)[0];
+    var spinner = new Spinner(opts).spin(target);
+
+    // Ajax call
+    jQuery.ajax({
+
+      type : 'GET',
+      url  : ajaxurl, // always same in wordpress, defined in head.php
+      data : {
+            action: idName, //firing the callout
+            pid: '<? echo $pid ?>' //sending the post ID to ajax callout
+        },
+        success :  function(data)
+        {
+          jQuery("#" + idName).html(data); //gettind response and injeting the data
+          $(theClass).removeClass("invisible"); //showing the arrow back again
+          $(theClass).removeClass("fire-ajax"); //class self destruction
+        }
+      });
+      return false;
+    });
+});
 </script>
 
-
 <script type="text/javascript">
-
 //Selected Work slider
     jQuery(document).ready(function(){
       jQuery('.selected-work-slider').slick({
@@ -27,6 +112,7 @@ $postname = $post->post_title;
         dots: true,
         arrows: false,
         fade: true,
+        lazyLoad: 'progressive',
         customPaging: function(slider, i) {
     var thumb = jQuery(slider.$slides[i]).data();
     return '<div class="numberCircle"><div class="height_fix"></div><a class="content">'+(i+1)+'</a></div>';
@@ -55,54 +141,6 @@ $postname = $post->post_title;
      });
   </script>
 
-<script>
-jQuery( document ).ready(function($) {
-
-  //Arrows functions
-  $('.expand-arrow').toggle(function() {
-
-    var e = $(this).closest("div").find('div');
-    var a = $(this).children("span");
-    var b = $(this).closest("div").next(".cheat");
-
-
-      $(e).addClass("expand");
-      $(a).removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
-      $(b).removeClass("clearfix");
-
-    }, function () {
-  var e = $(this).closest("div").find('div');
-  var a = $(this).children("span");
-  var b = $(this).closest("div").next(".cheat");
-
-
-  $(e).removeClass("expand");
-  $(a).removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
-  $(b).addClass("clearfix");
-  });
-
-
-//Firing arrows
-var $content = jQuery('.artist-biography');
-if($content.hasOverflow()) {
- var e = jQuery($content).closest("div").next(".expand-arrow");
- jQuery(e).removeClass("hidden");}
- var $content = jQuery('.artist-press');
-if($content.hasOverflow()) {
- var e = jQuery($content).closest("div").next(".expand-arrow");
- jQuery(e).removeClass("hidden");}
- var $content = jQuery('.artist-events');
-if($content.hasOverflow()) {
- var e = jQuery($content).closest("div").next(".expand-arrow");
- jQuery(e).removeClass("hidden");}
- var $content = jQuery('.artist-publications');
-if($content.hasOverflow()) {
- var e = jQuery($content).closest("div").next(".expand-arrow");
- jQuery(e).removeClass("hidden");}
-
-
-  })
-</script>
 
 
 
@@ -143,7 +181,7 @@ if($content.hasOverflow()) {
 
         		foreach ($items as $key => $item) :
         				?>
-                <img src="<?=$item['selected_image'][1][o];?>">
+                <img data-lazy="<?=$item['selected_image'][1][o];?>">
         				<?
         		endforeach;
         	?>
@@ -157,7 +195,7 @@ if($content.hasOverflow()) {
       <!-- Biography -->
       <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 pull-right-lg">
         <h4>Biography</h4>
-        <div class="artist-biography">
+        <div id="biography">
         <?=get('bio');?>
         </div>
         <button  type="button" class="btn btn-link expand-arrow pull-right hidden" >
@@ -169,9 +207,9 @@ if($content.hasOverflow()) {
 
       <!-- Press -->
       <?
-          query_posts('post_parent=61&meta_key=artist&meta_value='.$pid.'&orderby=date&order=DESC&showposts=-1&post_type=page');
-
-          if (have_posts()) : while (have_posts()) : the_post();
+          $press_query = new WP_Query();
+          $press_query->query('post_parent=61&meta_key=artist&meta_value='.$pid.'&orderby=date&order=DESC&showposts=7&post_type=page');
+          if ($press_query->have_posts()) : while ($press_query->have_posts()) : $press_query->the_post();
 
           $year = get_the_time('Y');
 
@@ -181,17 +219,17 @@ if($content.hasOverflow()) {
             'date'		=> get_the_time('F d, Y'),
             'subhead'	=> get('subhead')
 
-          );  endwhile; endif; wp_reset_query();?>
+          );  endwhile; endif;?>
 
           			<? if (is_array($press)) : ?>
                 <div class="col-sm-6 col-md-6 col-lg-4 pull-right-md pull-left-lg">
                   <h4>Press</h4>
-                  <div class="artist-press">
+                  <div id="press">
                   <?
-
           						foreach ($press as $year => $pressArray) : //print_r($exhibition);
+
                         $count = 1;
-                        foreach ($pressArray as $press) :  //slices amount in year period
+                        foreach ($pressArray as $press) :
 
           							$yearGroup = ($count == 1) ? $year : "";
           							$count++;
@@ -199,27 +237,27 @@ if($content.hasOverflow()) {
 
           		<div style="margin-bottom:10px;"><b><?=$yearGroup;?></b></div>
               <div style="margin-bottom:10px;"><b><a href="<?=$press['id'];?>"><?=$press['title'];?></a></b> <?php edit_post_link("[edit]", "<br/>"); ?><span class="exdate"><i><?=$press['subhead'];?></i> <?=$press['date'];?></span></div>
-            <? endforeach; ?>
-
-        <?  endforeach;
-?>
+            <? endforeach; endforeach;?>
 
           </div>
 
-            <button  type="button" class="btn btn-link expand-arrow pull-right hidden" >
-              <span class="glyphicon glyphicon-menu-down"></span>
-            </button>
-          </div>
+          <? if ($press_query->found_posts > 7 ) : ?>
+          <button  type="button" class="btn btn-link expand-arrow pull-right fire-ajax" >
+            <span class="glyphicon glyphicon-menu-down"></span>
+          </button>
+        <? endif;?>
 
+          </div>
           <? endif; ?>
           <div class="cheat clearfix visible-sm-block visible-md-block"></div>
           <div class="cheat clearfix visible-sm-block"></div>
 
           <!-- Publications -->
           <?
-          query_posts('post_parent=35&meta_key=related_artist&meta_value='.$pid.'&orderby=date&order=DESC&showposts=-1&post_type=page');
+          $publications_query = new WP_Query();
+          $publications_query->query('post_parent=35&meta_key=related_artist&meta_value='.$pid.'&orderby=date&order=DESC&showposts=2&post_type=page');
 
-          if (have_posts()) : while (have_posts()) : the_post();
+          if ($publications_query->have_posts()) : while ($publications_query->have_posts()) : $publications_query->the_post();
 
           $args = array("h" => 110, "w" => 90);
           $itemsArray[] = array(
@@ -230,7 +268,7 @@ if($content.hasOverflow()) {
             'year'=>get('year')
           );
 
-          endwhile; endif; wp_reset_query();
+        endwhile; endif;
 
           if(count($itemsArray)) :
             $itemsChunk = array_chunk($itemsArray,10,true);
@@ -239,8 +277,8 @@ if($content.hasOverflow()) {
 
           <div class="col-sm-5 col-md-6 col-lg-4">
               <h4>Publications</h4>
-
-                <div class="row artist-publications">
+              <div id="publications">
+                <div class="row">
                   <? foreach ($items as $item) : //print_r($item);
                     $artists = "";
                     foreach ($item['artists'] as $artist) :
@@ -254,33 +292,36 @@ if($content.hasOverflow()) {
 
                 <? endforeach; ?>
               </div>
-              <button  type="button" class="btn btn-link expand-arrow pull-right hidden" >
+            </div>
+              <? if ($publications_query->found_posts > 2 ) : ?>
+              <button  type="button" class="btn btn-link expand-arrow pull-right fire-ajax" >
                 <span class="glyphicon glyphicon-menu-down"></span>
               </button>
+            <? endif;?>
             </div>
             <div class="clearfix visible-sm-block visible-md-block"></div>
 
-            <? else: endif;?>
+            <? else: endif; ?>
 
       <!-- Events -->
-      <? query_posts('cat=1&meta_key=related_artist&meta_value='.$pid.'&orderby=date&order=DESC&showposts=-1');
-      if (have_posts()) : ?>
+      <?php
+      $events_query = new WP_Query();
+      $events_query->query('cat=1&meta_key=related_artist&meta_value='.$pid.'&orderby=date&order=DESC&showposts=3');
+      if ($events_query->have_posts()) : ?>
       <div class="col-sm-5 col-md-5 col-lg-4">
-        <h4>Events</h4>
-        <div class="artist-events">
-        <? while (have_posts()) : the_post(); ?>
-          <a href="<? the_permalink();?>"><? the_title(); ?></a><br/><br/>
-          <? edit_post_link("[edit]", "<br/>"); ?>
-        <? endwhile;?>
+          <h4>Events</h4>
+        <div id="events">
+      <? while($events_query->have_posts()) : $events_query->the_post(); ?>
+      <a href="<?php the_permalink() ?>"><?php the_title(); ?></a><br/><br/>
+      <?php endwhile; ?>
       </div>
-      <button  type="button" class="btn btn-link expand-arrow pull-right hidden" >
+      <? if ($events_query->found_posts > 3 ) : ?>
+      <button  type="button" class="btn btn-link expand-arrow pull-right fire-ajax" >
         <span class="glyphicon glyphicon-menu-down"></span>
       </button>
+    <? endif;?>
       </div>
-      <? endif; wp_reset_query();?>
-
-
-
+      <?endif; ?>
 </div>
 
 <?php endwhile; ?>
