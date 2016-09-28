@@ -19,9 +19,6 @@
     },
     "jquery.js": {
       "bower": ["jquery"]
-    },
-    "spin.js":  {
-      "bower": ["spin.js"]
     }
   },
   "config": {
