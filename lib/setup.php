@@ -87,9 +87,9 @@ function display_sidebar() {
     is_front_page(),
     is_page_template('template-custom.php'),
     is_page_template('template-artist.php'), //no sidebar for template-artists.php
-	is_page_template('template-about.php'), //no sidebar for template-about.php
-	is_page_template('template-artist-list.php'), //no sidebar for the artist list
-
+	  is_page_template('template-about.php'), //no sidebar for template-about.php
+    is_page_template('template-artist-list.php'), //no sidebar for the artist list
+    is_page_template('template-exhibition.php') //no sidebar for a single exhibition
   ]);
 
   return apply_filters('sage/display_sidebar', $display);

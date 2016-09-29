@@ -25,7 +25,7 @@
 	}
 
 	// show artist name
-	h1 {
+	h1, h2{
 		color: white;
 	  padding: 20px;
 		background-color: $title-black-bg;
@@ -43,7 +43,12 @@
 		width: 100%;
 	} // h1, h2
 
-	h1{
+	h2 {
+		font-size: 0.75em;
+		font-weight: 200;
+	}
+
+	h1, h2{
 		// @media (min-width: $screen-xs-min) {
 		// width: 300px;
 		// }

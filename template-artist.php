@@ -148,7 +148,9 @@ jQuery(document).ready(function($)
   <!-- Image for Header -->
   <div class="artist-page-container">
     <img src=<?php echo get('image'); ?>>
+    <div class="page-header">
     <?php get_template_part('templates/page', 'header'); ?>
+    </div>
   </div>
 
   <div class="container">
@@ -322,6 +324,6 @@ jQuery(document).ready(function($)
     <? endif;?>
       </div>
       <?endif; ?>
+  </div>
 </div>
-
 <?php endwhile; ?>
