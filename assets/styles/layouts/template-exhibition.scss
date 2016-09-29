@@ -1,3 +1,77 @@
+.exhibition-page-container {
+	max-width:100%;
+	margin-bottom: 50px;
+	position: relative;
+
+	img {
+		width:100%;
+		height: $artist-cover-img-height-mob;
+		object-fit: cover;
+
+		@media (min-width: $screen-sm-min) {
+			height: $artist-cover-img-height-sm;
+		}
+
+		@media (min-width: $screen-md-min) {
+			height: $artist-cover-img-height-md;
+		}
+
+		@media (min-width: $screen-lg-min) {
+			height: $artist-cover-img-height-lg;
+		}
+	}
+
+	// show artist name
+	h1 {
+		// color: white;
+	  // padding: 20px;
+		// background-color: $title-black-bg;
+		  // margin-top: 10px;
+		// margin-bottom: 0;
+
+		a, a:hover{
+			color:white;
+			text-decoration: none;
+		}
+
+    //
+		// margin-left:0;
+		// margin-right:auto;
+		// width: 100%;
+	} // h1, h2
+
+  .page-header {
+    color: white;
+    padding: 5px 20px;
+    background-color: $title-black-bg;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left:0;
+    margin-right:auto;
+    width: $desktop-menu-width + 50px;
+    word-wrap: break-word;
+  }
+
+  h2 {
+    margin-top: 0;
+    margin-bottom:20px;
+    font-size: 20px !important;
+    font-weight: 300 !important;
+  }
+	h1, h2 {
+		// @media (min-width: $screen-xs-min) {
+		// width: 300px;
+		// }
+	@media (min-width: $screen-xs-min) {
+	// width: $desktop-menu-width;
+	}
+  line-height: 1;
+	font-size: 30px;
+	}
+
+}
+
+
 #press-release {
   height: 400px;
   overflow: hidden;

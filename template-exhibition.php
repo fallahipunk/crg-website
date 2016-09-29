@@ -31,7 +31,7 @@ jQuery(document).ready(function($)
       //    $(e[0]).css({"height": height}); // injecting the heights into css
          $(e[0]).addClass("expand");
          $(a).removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
-         $(b).removeClass("clearfix");
+        //  $(b).removeClass("clearfix");
 
        }, function () {
      var e = $(this).closest("div").find('div');
@@ -41,7 +41,7 @@ jQuery(document).ready(function($)
 
      $(e[0]).removeClass("expand");
      $(a).removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
-     $(b).addClass("clearfix");
+    //  $(b).addClass("clearfix");
      });
  });
 </script>
@@ -85,7 +85,7 @@ jQuery(document).ready(function($)
 </script>
 
   <!-- Image for Header -->
-  <div class="artist-page-container">
+  <div class="exhibition-page-container">
     <img src="<?=get('installation_image');?>"/>
     <div class="page-header">
     <?php get_template_part('templates/page', 'header'); ?>
