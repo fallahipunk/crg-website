@@ -2,6 +2,50 @@
 /* Template Name: Exhibition */
 $pid = $post->ID;
 ?>
+
+<script>
+jQuery(document).ready(function($)
+{
+// Maintaining visibility of the arrows which are not related to any ajax containers (e.g. Biography)
+  $.fn.hasOverflow = function() {
+  var $this = $(this);
+  return $this[0].scrollHeight > $this.outerHeight() ||
+      $this[0].scrollWidth > $this.outerWidth();
+    };
+
+  var $content = jQuery('#press-release');
+  if($content.hasOverflow()) {
+   var e = jQuery($content).closest("div").next(".expand-arrow");
+   jQuery(e).removeClass("hidden");}
+
+   // Arrows behavior after click
+     $('.expand-arrow').toggle(function() {
+
+       var e = $(this).closest("div").find('div');
+       var a = $(this).children("span");
+      //  var b = $(this).closest("div").next(".cheat");
+
+       // Getting the heights of the container
+      //  var height = $(e[0]).outerHeight();
+       //
+      //    $(e[0]).css({"height": height}); // injecting the heights into css
+         $(e[0]).addClass("expand");
+         $(a).removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
+         $(b).removeClass("clearfix");
+
+       }, function () {
+     var e = $(this).closest("div").find('div');
+     var a = $(this).children("span");
+    //  var b = $(this).closest("div").next(".cheat");
+
+
+     $(e[0]).removeClass("expand");
+     $(a).removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
+     $(b).addClass("clearfix");
+     });
+ });
+</script>
+
 <script>
 //Selected Work slider
     jQuery(document).ready(function(){
@@ -57,9 +101,14 @@ $pid = $post->ID;
       <!-- Press Release -->
       <div class="col-xs-12">
         <h4>Press Release</h4>
+        <div id="press-release">
         <? the_content();?>
+        </div>
+        <button  type="button" class="btn btn-link expand-arrow pull-right hidden" >
+          <span class="glyphicon glyphicon-menu-down"></span>
+        </button>
       </div>
-      
+
       <!-- Selected work -->
       <div class="col-xs-12">
         <h4>Selected Work</h4>
