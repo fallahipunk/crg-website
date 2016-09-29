@@ -48,31 +48,56 @@
     margin-bottom: 0;
     margin-left:0;
     margin-right:auto;
-    width: $desktop-menu-width + 50px;
+    width: auto;
     word-wrap: break-word;
+  }
+
+  h1 {
+    font-size: 20px;
+    @media (min-width: $screen-xs-min) {
+      font-size: 30px;
+    }
   }
 
   h2 {
     margin-top: 0;
     margin-bottom:20px;
-    font-size: 20px !important;
+    font-size: 15px !important;
     font-weight: 300 !important;
+
+    @media (min-width: $screen-xs-min) {
+      font-size: 20px !important;
   }
-	h1, h2 {
-		// @media (min-width: $screen-xs-min) {
-		// width: 300px;
-		// }
-	@media (min-width: $screen-xs-min) {
-	// width: $desktop-menu-width;
-	}
-  line-height: 1;
-	font-size: 30px;
-	}
 
+  h1, h2 {
+    line-height: 1;
+	}
+  }
 }
-
 
 #press-release {
   height: 400px;
   overflow: hidden;
+}
+
+.participating-artists {
+  color: black;
+  font-size: 24px;
+  font-weight: 600;
+  font-style: italic;
+  & a {
+    color: black;
+  }
+}
+
+.exhibition-container-width {
+@media (min-width: $screen-sm-min) {
+  width: 550px;
+}
+@media (min-width: $screen-md-min) {
+  width: 650px;
+}
+@media (min-width: $screen-md-min) {
+  width: 1170px;
+}
 }

@@ -93,13 +93,13 @@ jQuery(document).ready(function($)
     </div>
   </div>
 
-  <div class="container">
+  <div class="container exhibition-container-width">
     <div class="row">
       <? if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 
       <!-- Press Release -->
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-lg-4 col-lg-push-8">
         <h4>Press Release</h4>
         <div id="press-release">
         <? the_content();?>
@@ -110,7 +110,7 @@ jQuery(document).ready(function($)
       </div>
 
       <!-- Selected work -->
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-lg-8 col-lg-pull-4">
         <h4>Selected Work</h4>
           <?
           $items = get_group('Selected Work');
@@ -148,7 +148,7 @@ jQuery(document).ready(function($)
       </div>
 
       <!-- Selected work -->
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-lg-8">
         <h4>Installation Shots</h4>
           <?
           $items = get_group('Installation Shots');
@@ -185,8 +185,8 @@ jQuery(document).ready(function($)
         </div>
       </div>
 
-      <div class="col-xs-12">
-        <h4>Participating Artists</h4>
+      <div class="col-xs-12 col-lg-4">
+        <h4>Participating Artists:</h4>
 
       <?
       $artists = get_group('Participating Artists');
@@ -198,7 +198,7 @@ jQuery(document).ready(function($)
         if (!$artist['related_artist'][1]=="") :
 
       ?>
-        <a href="<?=get_permalink($artist['related_artist'][1]);?>"><?=get_the_title($artist['related_artist'][1]);?></a><br/>
+        <span class="participating-artists"><a href="<?=get_permalink($artist['related_artist'][1]);?>"><?=get_the_title($artist['related_artist'][1]);?></a></span><br/>
       <?
         elseif (!$artist['outside_artist'][1]=="") :
           echo $artist['outside_artist'][1]."<br/>";
