@@ -16,7 +16,12 @@
 ?>
    <?php
    $my_wp_query = new WP_Query();
-   $all_wp_pages = $my_wp_query->query(array('post_type' => 'page','orderby' => 'title','order' => 'ASC','posts_per_page' => -1));
+   $all_wp_pages = $my_wp_query->query(array(
+	   										'post_type' => 'page',
+											'orderby'   => 'meta_value',
+											'meta_key'  => 'artist_lastname',
+											'order' => 'ASC',
+											'posts_per_page' => -1));
    $artist_list = get_page_children(25, $all_wp_pages);
    $thumb_size = array("h" => 120, "w" => 180);
     foreach($artist_list as $artist){
