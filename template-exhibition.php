@@ -23,25 +23,20 @@ jQuery(document).ready(function($)
 
        var e = $(this).closest("div").find('div');
        var a = $(this).children("span");
-      //  var b = $(this).closest("div").next(".cheat");
+       var b = jQuery(this).closest("div").next().next(".cheat");
 
-       // Getting the heights of the container
-      //  var height = $(e[0]).outerHeight();
-       //
-      //    $(e[0]).css({"height": height}); // injecting the heights into css
          $(e[0]).addClass("expand");
          $(a).removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
-        //  $(b).removeClass("clearfix");
+         $(b).addClass("col-lg-pull-4");
 
        }, function () {
      var e = $(this).closest("div").find('div');
      var a = $(this).children("span");
-    //  var b = $(this).closest("div").next(".cheat");
-
+     var b = jQuery(this).closest("div").next().next(".cheat");
 
      $(e[0]).removeClass("expand");
      $(a).removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
-    //  $(b).addClass("clearfix");
+     $(b).removeClass("col-lg-pull-4");
      });
  });
 </script>
@@ -148,7 +143,7 @@ jQuery(document).ready(function($)
       </div>
 
       <!-- Selected work -->
-      <div class="col-xs-12 col-lg-8">
+      <div class="col-xs-12 col-lg-8 cheat">
         <h4>Installation Shots</h4>
           <?
           $items = get_group('Installation Shots');
