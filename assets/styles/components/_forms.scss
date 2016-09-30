@@ -2,10 +2,15 @@
 .search-form {
   @extend .form-inline;
   text-align: center;
-  width: $search-width;
+  width: 300px; // this + @media min-width: $screen-sm-min - cures vertical scrolling for mobile screen devicies 
   margin: auto;
   padding: 20px 0px 40px 0px;
+
+  @media (min-width: $screen-sm-min) {
+    width: $search-width !important;
+  }
 }
+
 .search-form label {
   font-weight: normal;
   @extend .form-group;
@@ -16,8 +21,8 @@
 .search-form .search-submit {
   @extend .btn;
   @extend .btn-default;
-  
-  
+
+
 }
 
 
@@ -34,7 +39,7 @@ font-size: 20px;
 		font-size: 50px;
 		color: $crg-gray;
 	}
-	
+
 	input{
 	height: 40px;
 	padding: 10px;
