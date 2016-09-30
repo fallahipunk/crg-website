@@ -92,6 +92,8 @@ function display_sidebar() {
 	is_page_template('template-exhibitions-current.php'), //no sidebar for the Exhibition pages
 	is_page_template('template-exhibitions-upcoming.php'),
 	is_page_template('template-exhibitions-past.php'),  
+    is_page_template('template-exhibition.php') //no sidebar for a single exhibition
+
   ]);
 
   return apply_filters('sage/display_sidebar', $display);

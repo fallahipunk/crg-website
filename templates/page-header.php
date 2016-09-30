@@ -2,7 +2,5 @@
 
 <?php if (is_front_page()) : ?>
 <?php else: ?>
-<div class="page-header">
   <h1><?= Titles\title(); ?></h1>
-</div>
 <?php endif; ?>

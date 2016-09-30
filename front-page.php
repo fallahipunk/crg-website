@@ -1,8 +1,9 @@
 <?php // oroginally copied from page.php
 	while (have_posts()) : the_post(); ?>
 
+	<div class="page-header">
   <?php get_template_part('templates/page', 'header'); ?>
-
+	</div>
   <?php get_template_part('templates/content', 'page'); ?>
 
   <div class ="gray-arrow">
@@ -45,7 +46,7 @@
 			   $content = apply_filters('the_content', $post->post_content);
 			   echo $content;
 			?>
-			
+
 			 </div>
 		 </div>
 	</div>
