@@ -1,0 +1,19 @@
+.publication-page {
+margin-top: 100px;
+@media (min-width: $screen-sm-min) {
+  margin-top: 150px;
+}
+@media (min-width: $screen-md-min) {
+margin-top: 150px;
+}
+
+img {
+  width:100%;
+  height: auto;
+}
+
+a {
+  color:black;
+  font-weight: bolder;
+}
+}
