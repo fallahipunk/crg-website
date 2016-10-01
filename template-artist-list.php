@@ -31,7 +31,13 @@
 				
 				<a href="<?php echo get_page_link( $artist->ID ); ?>">
 					<div class = "artist-thumb">
-					 <?php echo get_image('image',1,1,1,$artist->ID,$thumb_size); ?>
+					 <?php 
+					 if (get_image('image',1,1,1,$artist->ID)){
+					 echo get_image('image',1,1,1,$artist->ID,$thumb_size); 
+					 }
+					 
+					 
+					 ?>
 				 	</div>
 		<div class="artist-link">
 			<br>
