@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Exhibitions Past Template
+ * Template Name: Exhibitions Current Template
  */
 ?>
 <div calss="row">
