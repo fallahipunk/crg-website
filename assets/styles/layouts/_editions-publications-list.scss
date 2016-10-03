@@ -1,0 +1,27 @@
+.editions{
+text-align: center;
+margin-top: 80px;
+	@media (min-width: $screen-md-min) {
+	margin-top: 130px;
+	}
+a{
+font-size: 16px;
+}
+
+.artist-link{
+height: 60px;
+}
+
+.col-xs-6 {
+padding:0px;
+}
+
+.artist-thumb {
+text-align: center;
+}
+
+.artist-link{
+text-align: center;
+}
+
+}
