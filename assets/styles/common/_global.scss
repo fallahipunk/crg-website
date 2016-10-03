@@ -8,7 +8,15 @@ font-family: 'Hind', sans-serif;
 	
 	  a:hover, a:active, a:focus {
 	  color: #000;
+	  text-decoration: none;
 	  }
 
+}
+
+.selected-link{
+a{
+	  color: #000;
+	  font-weight: bold; 
+}
 }
 
