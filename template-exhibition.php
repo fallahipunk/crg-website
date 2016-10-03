@@ -105,6 +105,7 @@ jQuery(document).ready(function($)
       </div>
 
       <!-- Selected work -->
+	  <?php if(get_image('selected_image',1,1,1,$pid)){ ?>
       <div class="col-xs-12 col-lg-8 col-lg-pull-4">
         <h4>Selected Work</h4>
           <?
@@ -141,8 +142,10 @@ jQuery(document).ready(function($)
           ?>
         </div>
       </div>
+	  <?php }?>
 
-      <!-- Selected work -->
+      <!-- Installation Shots -->
+	  <?php if(get_image('selected_image',1,1,1,$pid)){ ?>
       <div class="col-xs-12 col-lg-8 cheat">
         <h4>Installation Shots</h4>
           <?
@@ -179,6 +182,7 @@ jQuery(document).ready(function($)
           ?>
         </div>
       </div>
+	  <?php }?>
 
       <div class="col-xs-12 col-lg-4">
         <h4>Participating Artists:</h4>
