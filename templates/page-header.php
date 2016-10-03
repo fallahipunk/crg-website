@@ -2,5 +2,5 @@
 
 <?php if (is_front_page()) : ?>
 <?php else: ?>
-  <h1><?= Titles\title(); ?></h1>
+  <h3><?= Titles\title(); ?></h3>
 <?php endif; ?>

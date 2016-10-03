@@ -1,4 +1,5 @@
-<?php get_template_part('templates/page', 'header'); ?>
+<div class = "search-container">
+
 
 <?php if (!have_posts()) : ?>
   <div class="alert alert-warning">
@@ -12,3 +13,4 @@
 <?php endwhile; ?>
 
 <?php the_posts_navigation(); ?>
+</div>
