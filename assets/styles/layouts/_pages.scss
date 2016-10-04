@@ -204,3 +204,54 @@ text-align:center;
     float: none;
     margin: 0 auto;
 }
+
+.content {
+
+	element.style {
+		width: 300px;
+	}
+	figure {
+		float: left;
+		position: relative;
+		width:50px;
+// 		-webkit-margin-before: 0;
+// -webkit-margin-after: 0;
+// -webkit-margin-start: 0;
+// -webkit-margin-end: 0;
+	}
+
+	p {
+		float:left;
+		display: block;
+		}
+	.wp-caption {
+
+	}
+
+	figcaption {
+		width: 50px;
+	}
+	.thumbnail, .wp-caption
+	{
+		padding:0;
+		border:0;
+	}
+	img {
+		position: relative;;
+		width:50px;
+		height: $artist-cover-img-height-mob;
+		object-fit: cover;
+
+		@media (min-width: $screen-sm-min) {
+			height: $artist-cover-img-height-sm;
+		}
+
+		@media (min-width: $screen-md-min) {
+			height: $artist-cover-img-height-md;
+		}
+
+		@media (min-width: $screen-lg-min) {
+			height: $artist-cover-img-height-lg;
+		}
+	}
+}

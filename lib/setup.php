@@ -85,11 +85,12 @@ function display_sidebar() {
     // @link https://codex.wordpress.org/Conditional_Tags
     is_404(),
     is_front_page(),
+    is_single(), // no sidebar for posts (single.php)
     is_page_template('template-custom.php'),
     is_page_template('template-artist.php'), //no sidebar for template-artists.php
 	  is_page_template('template-about.php'), //no sidebar for template-about.php
     is_page_template('template-artist-list.php'), //no sidebar for the artist list
-    is_page_template('template-exhibition.php') //no sidebar for a single exhibition
+    is_page_template('template-exhibition.php'), //no sidebar for a single exhibition
   ]);
 
   return apply_filters('sage/display_sidebar', $display);
