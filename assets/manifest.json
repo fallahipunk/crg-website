@@ -12,6 +12,12 @@
       ],
       "main": true
     },
+    "print.css": {
+      "files": [
+        "styles/print.css"
+      ],
+      "main": true
+    },
     "customizer.js": {
       "files": [
         "scripts/customizer.js"

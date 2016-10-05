@@ -1,0 +1,5 @@
+#biography { /* Important, expands the biography div for printing if it is collapsed */
+  height: 100%;
+}
+
+/* For the header */

@@ -93,12 +93,12 @@ function display_sidebar() {
 	is_page_template('template-artist-list.php'), //no sidebar for the artist list
 	is_page_template('template-exhibitions-current.php'), //no sidebar for the Exhibition pages
 	is_page_template('template-exhibitions-upcoming.php'),
-	is_page_template('template-exhibitions-past.php'),  
-	is_page_template('template-publication.php'), 
-	is_page_template('template-edition.php'), 
-	is_page_template('template-editions-publications.php'), 
+	is_page_template('template-exhibitions-past.php'),
+	is_page_template('template-publication.php'),
+	is_page_template('template-edition.php'),
+	is_page_template('template-editions-publications.php'),
 	is_page_template('template-press.php'),
-	is_page_template('template-press-events.php'), 
+	is_page_template('template-press-events.php'),
     is_page_template('template-exhibition.php') //no sidebar for a single exhibition
 
   ]);
@@ -117,5 +117,6 @@ function assets() {
   }
 
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

@@ -9,7 +9,8 @@
   "dependencies": {
     "bootstrap-sass": "3.3.6",
     "slick-carousel": "^1.6.0",
-    "spin.js": "^2.3.2"
+    "spin.js": "^2.3.2",
+    "jQuery.print": "^1.5.0"
   },
   "overrides": {
     "bootstrap-sass": {
