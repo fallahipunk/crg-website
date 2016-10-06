@@ -96,6 +96,7 @@ jQuery(document).ready(function($)
       <!-- Press Release -->
       <div class="col-xs-12 col-lg-4 col-lg-push-8">
         <h4>Press Release</h4>
+        <a class="print small" href="#" onclick='jQuery("#press-release").print({stylesheet:"/wp-content/themes/crg-website/dist/styles/print.css",prepend:"<div><h1><b>CRG Gallery</h1></b><small>195 Chrystie Street, New York, NY 10002</small>  |  <small>T – 212 229 2766, F – 212 229 2788</small>  |  <small>info@crggallery.com</small><div><br><h2><? the_title(); ?></h2><br><b>Press Release<b>"});'><span class="glyphicon glyphicon-print"></span> print</a>
         <div id="press-release">
         <? the_content();?>
         </div>
