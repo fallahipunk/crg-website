@@ -9,52 +9,43 @@
  
 <?php endwhile; ?>
 
-<div class = "col-xs-6 editions" >
 
-<h3>Press<br><br></h3>
-
-   <?php
-   $my_wp_query = new WP_Query();
-   $all_wp_pages = $my_wp_query->query(array(
-	   										'post_type' => 'page',
-											'orderby' => 'date',
-											'order' => 'DESC',
-											'posts_per_page' => -1));
-   $artist_list = get_page_children(61, $all_wp_pages);
-   $thumb_size = array("h" => 200, "w" => 160);
-    foreach($artist_list as $artist){
-		   	?>
-
-		
-			<div   class="col-xs-12 col-md-6">
-				
-				<a href="<?php echo get_page_link( $artist->ID ); ?>">
-
-		<div class="press-link">
-			<br>
-			<?php echo $artist->post_title; ?>
-		</a>
-		</div>
-	</div>
-	  <?php
-	}
-   
- 	?>
-	
-</div>
-
-<div class = "col-xs-6 editions" >
-
-<h3>Events<br><br></h3>
+<div class ="news-list">
 
   <?php
       $args = array( 'category' => 1, 'post_type' =>  'post', 'posts_per_page' => -1, 											'orderby' => 'date',
 											'order' => 'DESC', ); 
       $postslist = get_posts( $args );    
       foreach ($postslist as $post) :  setup_postdata($post); 
-      ?>  
-	  <?php get_post_thumbnail_id($post);?>
-      <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-	   <?php endforeach; ?> 
+      $end_date = strtotime(get('end_date',1,1,1,$post->ID));
+	  $yesterday = strtotime("-1 days");
+	  if ($end_date > $yesterday){
+	  ?>  
+	  <h3><a href="<?php the_permalink(); ?>"> <div class = "col-sm-6 current-title"><?php the_title(); ?></div>
+	 <div class = "col-sm-6 current-image"> <?php 
+	  the_post_thumbnail("current-thumb");
+	  ?></div>
+  		</a></h3>
+	   <?php 
+   }// end if current
+	   endforeach; ?> 
+	   
+	     <?php foreach ($postslist as $post) :  setup_postdata($post); 
+	      $end_date = strtotime(get('end_date',1,1,1,$post->ID));
+		  $yesterday = strtotime("-1 days");
+		  if ($end_date <= $yesterday){
+		  ?>  
+		  <div class = "col-xs-6 col-sm-3 col-md-2 past-event">
+		  <h5><a href="<?php the_permalink(); ?>"><div class = "col-sm-12 past-news-title"><?php the_title(); ?></div>
+		 <div class = "col-sm-12 past-news-img">
+		  <?php 
+		  the_post_thumbnail();
+		  ?>
+	  </div>
+	  		</a></h5> </div>
+		   <?php 
+	   }// end if past
+		   endforeach; ?>
+</div>
 </div>
 

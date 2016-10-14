@@ -110,9 +110,19 @@ function press_callback() {
 	    wp_die(); // this is required to terminate immediately and return a proper response
 }
 
+if ( function_exists( 'add_theme_support' ) ) { 
+    add_theme_support( 'post-thumbnails' );
+    set_post_thumbnail_size( 200, 200, true ); // default Post Thumbnail dimensions (cropped)
+
+    // additional image sizes
+    // delete the next line if you do not need additional image sizes
+    add_image_size( 'current-thumb', 800, 800 ); //300 pixels wide (and unlimited height)
+}
+
 add_action( 'wp_ajax_press', 'press_callback' );
 add_action( 'wp_ajax_nopriv_press', 'press_callback' );
 add_action( 'wp_ajax_publications', 'publications_callback' );
 add_action( 'wp_ajax_nopriv_publications', 'publications_callback' );
 add_action( 'wp_ajax_events', 'events_callback' );
 add_action( 'wp_ajax_nopriv_events', 'events_callback' );
+
