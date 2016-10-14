@@ -4,22 +4,17 @@
  */
 ?>
 <div calss="row">
-	<h4>
 <div class = "exhibition-links">
-	<div  class="col-xs-4 selected-link">		
-	<a href="/index.php?page_id=11">Current</a>
+	<div  class="col-xs-12">	
+	<h3><div class = "selected-link"><a href="/index.php?page_id=11">Current Exhibitions</a></div><h3>
+	<h4><a href="/index.php?page_id=22">Past</a><h4>
+	<h4><a href="/index.php?page_id=20">Upcoming</a><h4>
 	</div>
-	<div  class="col-xs-4">		
-	<a href="/index.php?page_id=20">Upcoming</a>
-	</div>
-	<div  class="col-xs-4">		
-	<a href="/index.php?page_id=22">Past</a>
-	</div>
-</div>
-	</h4>
 </div>
 
-	<div class = "artist-list">
+</div>
+
+	<div class = "exhibition-list">
 
 
 <?php if ( have_posts() ) { /* Query and display the parent. */
@@ -53,31 +48,42 @@
 											
 											'posts_per_page' => -1));
 											
-   $artist_list = get_page_children(11, $all_wp_pages);
-    $thumb_size = array("h" => 200, "w" => 1000);
-    foreach($artist_list as $artist){
+   $exhibition_list = get_page_children(11, $all_wp_pages);
+   
+    $thumb_size = array("h" => 220, "w" => 260);
+	
+
+		foreach($exhibition_list as $exhibition){
+			$full_date = get('start_date',1,1,1,$exhibition->ID) . " - " .get('end_date',1,1,1,$exhibition->ID);
 		   	?>
 		
-			<div   class="col-xs-12">
-				<a href="<?php echo get_page_link( $artist->ID ); ?>">
-				<div class = "current-exhibition-thumb">
-				 <?php 
-				 if(get_image('installation_image',1,1,1,$artist->ID)){
-				echo get_image('installation_image',1,1,1,$artist->ID,$thumb_size); 
-			} ?>
-	
-			 	</div>
-
-		<div class="upcoming-exhibition-link">
-			<a href="<?php echo get_page_link( $artist->ID ); ?>">
-				<h4><br> <?php echo $artist->post_title; ?></h4>
-				<?php echo get('start_date',1,1,1,$artist->ID); ?>
-				 - 
-				 <?php echo get('end_date',1,1,1,$artist->ID); ?>
-			</a>
-		</div>
+			<div   class="current-exhibition-item">
+		<dic class = "row">
+				<a href="<?php echo get_page_link( $exhibition->ID ); ?>">
+				<div class = "current-exhibition-thumb col-sm-6">
+						<?php
+							 if(get_image('installation_image',1,1,1,$exhibition->ID)){
+							echo get_image('installation_image',1,1,1,$exhibition->ID,$thumb_size); 
+							}
+							elseif (get_image('selected_image',1,1,1,$exhibition->ID)){
+							echo get_image('selected_image',1,1,1,$exhibition->ID,$thumb_size); 
+							}
+							else{ ?>
+								<img src="<?= get_template_directory_uri() . '/assets/images/placeholder-tumb.png'; ?>">
+							 <?php }  
+							 ?>
+				</div>
 		
-	</div>
+				<div class = "current-exhibition-label col-sm-6">
+					<?php
+					 echo $exhibition->post_title, "<br>";
+					 echo '<div class = "exhibition-date"> ',$full_date, '</div>';
+					?>
+				</div>
+		
+				</a>
+			</div>
+			</div>
 	  <?php
 	}
    

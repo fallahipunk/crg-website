@@ -1,8 +1,8 @@
 .exhibition-links{
 text-align: left;
-margin-top: 100px;
+margin-top: 50px;
 	@media (min-width: $screen-sm-min) {
-	margin-top: 130px;
+	margin-top: 70px;
 	}
 }
 
@@ -17,6 +17,28 @@ height:350px;
 }
 
 .exhibition-date{
-font-size: 10px;
+font-size: 12px;
 }
 
+.exhibition-list{
+text-align: center;
+}
+
+.current-exhibition-item{
+@media (min-width: $screen-sm-min) {
+height:400px;
+}
+}
+
+.current-exhibition-label{
+text-align: center;
+@media (min-width: $screen-sm-min) {
+text-align: left;
+}
+}
+.current-exhibition-thumb{
+text-align: center;
+@media (min-width: $screen-sm-min) {
+text-align: right;
+}
+}
