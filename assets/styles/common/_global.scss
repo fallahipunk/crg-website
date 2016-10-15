@@ -80,17 +80,27 @@ margin-bottom:-10px;
 //news list
 .news-list{
 padding-top:120px;
+text-align: center;
 }
 
 .current-image{
 img{
-width: 100%;
-max-height: 300px;
+width: 400px;
+height: 250px;
     -o-object-fit: cover;
     object-fit: cover;
     overflow: hidden;
 }
 }
+.current-title{
+
+@media (min-width: $screen-sm-min) {
+text-align: right;
+}
+}
+
+
+
 
 .past-event{
 height: 400px;

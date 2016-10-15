@@ -3,14 +3,13 @@
  * Template Name: Exhibitions upcoming Template
  */
 ?>
-<div calss="row">
+
 <div class = "exhibition-links">
-	<div  class="col-xs-12">	
+	
 	<h3><div class = "selected-link"><a href="/index.php?page_id=20">Upcoming Exhibitions</a></div><h3>
 	<h4><a href="/index.php?page_id=22">Past</a><h4>
 	<h4><a href="/index.php?page_id=11">Current</a><h4>
-	</div>
-</div>
+
 
 </div>
 

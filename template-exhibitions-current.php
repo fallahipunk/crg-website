@@ -3,18 +3,9 @@
  * Template Name: Exhibitions Current Template
  */
 ?>
-<div calss="row">
-<div class = "exhibition-links">
-	<div  class="col-xs-12">	
-	<h3><div class = "selected-link"><a href="/index.php?page_id=11">Current Exhibitions</a></div><h3>
-	<h4><a href="/index.php?page_id=22">Past</a><h4>
-	<h4><a href="/index.php?page_id=20">Upcoming</a><h4>
-	</div>
-</div>
 
-</div>
 
-	<div class = "exhibition-list">
+	
 
 
 <?php if ( have_posts() ) { /* Query and display the parent. */
@@ -23,6 +14,18 @@
  }
 }
 ?>
+
+
+<div class = "exhibition-links">
+	
+	<h3><div class = "selected-link"><a href="/index.php?page_id=11">Current Exhibitions</a></div><h3>
+	<h4><a href="/index.php?page_id=22">Past</a><h4>
+	<h4><a href="/index.php?page_id=20">Upcoming</a><h4>
+
+</div>
+
+
+<div class = "exhibition-list">
    <?php
    $my_wp_query = new WP_Query();
    $all_wp_pages = $my_wp_query->query(array(

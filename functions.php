@@ -116,7 +116,7 @@ if ( function_exists( 'add_theme_support' ) ) {
 
     // additional image sizes
     // delete the next line if you do not need additional image sizes
-    add_image_size( 'current-thumb', 800, 800 ); //300 pixels wide (and unlimited height)
+    add_image_size( 'current-thumb', 500, 500 ); //300 pixels wide (and unlimited height)
 }
 
 add_action( 'wp_ajax_press', 'press_callback' );
