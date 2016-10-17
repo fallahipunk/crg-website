@@ -43,7 +43,7 @@
 	   if (!in_array($edition_last_name,$artist_list)){
 	   	array_push($artist_list, $edition_last_name);
 	   }
-   } // for each publication
+   } // for each edition
    
    
    
@@ -63,6 +63,7 @@
 			array_push($artist_publications, $publication);
 			if (get('artist_firstname',1,1,1,$publication->ID)){
 			$artist_first_name  =  get('artist_firstname',1,1,1,$publication->ID);}
+			array_shift($publication_list);
 		}
 		
 	   }// for each publication
@@ -75,6 +76,7 @@
 			if (get('artist_firstname',1,1,1,$edition->ID)){
 			$artist_first_name  =  get('artist_firstname',1,1,1,$edition->ID);
 		}
+		array_shift($edition_list);
 		}
 	   }// for each eiditions
 	   ?>

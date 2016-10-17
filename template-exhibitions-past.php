@@ -58,10 +58,12 @@
 
  <?php
  	foreach($exhibition_years as $year){
+		//$index = 0;
  		?>
 		<div class = "col-xs-12"><h3><?php echo $year ?><h3></div>
 <?php
 	foreach($exhibition_list as $exhibition){
+		
    	 $ex_end_date = strtotime(get('end_date',1,1,1,$exhibition->ID));
    	 $end_date_year = date('Y',$ex_end_date);
 	 $full_date = get('start_date',1,1,1,$exhibition->ID) . " - " .get('end_date',1,1,1,$exhibition->ID); 
@@ -94,8 +96,15 @@ if (strcmp($end_date_year, $year) == 0){ ?>
 		</a>
 	</div>
 				
-<?php					
+<?php	
+ array_shift($exhibition_list);
+//unset($exhibition_list['$index']);		
+//echo "<h1>" . count($exhibition_list) . " index: " .$index . "<br></h1>";		
 }//end if exhibition year matches current year
+else{
+	break;
+}
+	//$index = $index +1;
 	 }// end for each exhibition in a year
 } //end for each year
 			
