@@ -111,7 +111,7 @@ jQuery(document).ready(function($)
       <div class="col-xs-12 col-lg-8 col-lg-pull-4">
         <h4>Selected Work</h4>
           <?
-          $items = get_group('Selected Work');
+          $items = get_group('Selected Works');
 
           //print_r($items);
           //$photoID = $_GET['photo'];
@@ -119,7 +119,7 @@ jQuery(document).ready(function($)
 
           if(count($items)) :
 
-          $itemsChunk = array_chunk($items,1,true);
+          $itemsChunk = array_chunk($items,1,false);
 
           ?>
           <div class="selected-work-slider">
@@ -133,8 +133,8 @@ jQuery(document).ready(function($)
 
             foreach ($items as $key => $item) :
                 ?>
-                <img data-lazy="<?=$item['selected_image'][1][o];?>">
-				CAPTION GOES HERE
+                <div class="slide-image"><img data-lazy="<?=$item['selected_image'][1][o];?>"></div>
+				<div class="slide-captions"><?=$item['selected_work_caption'][1];?> </div>
                 <?
             endforeach;
           ?>
@@ -168,7 +168,7 @@ jQuery(document).ready(function($)
           <?
           foreach ($itemsChunk as $items) :
             ?>
-          <div class="selected-work-slider-container">
+          <div class="installation-slider-container">
           <?
 
 

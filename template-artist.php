@@ -183,6 +183,7 @@ jQuery(document).ready(function($)
 
         		foreach ($items as $key => $item) :
         				?>
+						
                 <div class="slide-image"><img data-lazy="<?=$item['selected_image'][1][o];?>"></div>
                 <div class="slide-captions"><?=$item['selected_caption'][1];?></div>
         				<?
