@@ -119,6 +119,8 @@ if ( function_exists( 'add_theme_support' ) ) {
     add_image_size( 'current-thumb', 500, 500 ); //300 pixels wide (and unlimited height)
 }
 
+
+
 add_action( 'wp_ajax_press', 'press_callback' );
 add_action( 'wp_ajax_nopriv_press', 'press_callback' );
 add_action( 'wp_ajax_publications', 'publications_callback' );
