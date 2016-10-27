@@ -48,3 +48,4 @@ else{
       <?php _e('Sorry, no results were found.', 'sage'); ?>
     </div>
 	<?php } ?>
+</div>
