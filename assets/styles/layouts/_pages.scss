@@ -95,7 +95,7 @@ margin-bottom: 30px;
 
 	h2{
 	@media (min-width: $screen-md-min) {
-	width: $mobile-menu-width;
+	width: $desktop-menu-width;
 	margin-left:auto;
 	margin-right:0;
 	}
@@ -241,11 +241,15 @@ margin-top: -370px;
 	}
 	
 	
-.slick-dots{
 
-}
 
 .selected-work-slider-container{
 margin-top: 200px;
+}
+
+.selected-work-slider{
+.slick-dots{
+margin-top: -80px;
+}
 }
 

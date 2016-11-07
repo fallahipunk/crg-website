@@ -23,7 +23,7 @@
 											'order' => 'ASC',
 											'posts_per_page' => -1));
    $artist_list = get_page_children(25, $all_wp_pages);
-   $thumb_size = array("h" => 120, "w" => 160);
+   $thumb_size = array("h" => 200, "w" => 250);
     foreach($artist_list as $artist){
 		   	?>
 		

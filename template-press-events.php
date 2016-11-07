@@ -13,7 +13,7 @@
 <div class ="news-list">
 
   <?php
-      $args = array( 'category' => 1, 'post_type' =>  'post', 'posts_per_page' => -1, 											'orderby' => 'date',
+      $args = array( 'category' => 1, 'post_type' =>  'post', 'posts_per_page' => -1, 											'orderby'=> 'date',
 											'order' => 'DESC', ); 
       $postslist = get_posts( $args );    
       foreach ($postslist as $post) :  setup_postdata($post); 

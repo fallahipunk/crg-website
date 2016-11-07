@@ -201,6 +201,12 @@ jQuery(document).ready(function($)
         <h4>Biography</h4>
         <a class="print small" href="#" onclick='jQuery("#biography").print({stylesheet:"/wp-content/themes/crg-website/dist/styles/print.css"});'><span class="glyphicon glyphicon-print"></span> print</a>
         <div id="biography">
+		
+		<div class = "visible-print-block">
+		<h3><?php echo get_the_title();?></h3>
+		<br><br>
+		</div>
+		
         <?=get('bio');?>
         </div>
         <button  type="button" class="btn btn-link expand-arrow pull-right hidden" >
@@ -311,7 +317,23 @@ jQuery(document).ready(function($)
       <!-- Events -->
       <?php
       $events_query = new WP_Query();
-      $events_query->query('cat=1&meta_key=related_artist&meta_value='.$pid.'&orderby=date&order=DESC&showposts=3');
+	  $args = array('category' => 1,
+	  				'meta_key' => 'related_artist',
+					'meta_value' => $pid,
+					'orderby' => 'date',
+					'order' => 'DESC',
+					'showposts' => 3,
+					'meta_query' => array(
+						array(
+						            'key'     => 'end_date',		            
+									'value'   => date("Y-m-d"),		            
+									'type'    => 'DATE',		          
+									'compare' => '>=')
+								)
+					);
+					
+      $events_query->query($args);
+	  $events_list = get_posts($events_query);
       if ($events_query->have_posts()) : ?>
       <div class="col-sm-5 col-md-5 col-lg-4">
           <h4>Events</h4>
