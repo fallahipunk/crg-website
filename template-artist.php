@@ -247,7 +247,7 @@ jQuery(document).ready(function($)
           					?>
 
           		<div style="margin-bottom:10px;"><b><?=$yearGroup;?></b></div>
-              <div style="margin-bottom:10px;"><b><a href="<?=$press['id'];?>"><?=$press['title'];?></a></b> <?php edit_post_link("[edit]", "<br/>"); ?><span class="exdate"><i><?=$press['subhead'];?></i> <?=$press['date'];?></span></div>
+              <div style="margin-bottom:10px;"><b><a href="http://crggallery.com/press/<?=$press['id'];?>"><?=$press['title'];?></a></b> <?php edit_post_link("[edit]", "<br/>"); ?><span class="exdate"><i><?=$press['subhead'];?></i> <?=$press['date'];?></span></div>
             <? endforeach; endforeach;?>
 
           </div>

@@ -248,8 +248,12 @@ margin-top: 200px;
 }
 
 .selected-work-slider{
+
 .slick-dots{
+@media (min-width: $screen-sm-min) {
 margin-top: -80px;
 }
+}
+
 }
 
