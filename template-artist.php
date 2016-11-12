@@ -198,6 +198,12 @@ jQuery(document).ready(function($)
       </div>
       <!-- Biography -->
       <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 pull-right-lg">
+
+        <?php $category = wp_get_post_parent_id( $pid );
+        echo $category; 
+
+        ?>
+
         <h4>Biography</h4>
         <a class="print small" href="#" onclick='jQuery("#biography").print({stylesheet:"/wp-content/themes/crg-website/dist/styles/print.css"});'><span class="glyphicon glyphicon-print"></span> print</a>
         <div id="biography">

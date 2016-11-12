@@ -93,7 +93,8 @@ function press_callback() {
     'title' 	=> get_the_title(),
     'id' 		=> $post->post_name,
     'date'		=> get_the_time('F d, Y'),
-    'subhead'	=> get('subhead')
+    'subhead'	=> get('subhead'),
+    'permalink' => get_permalink()
 
   );  endwhile; endif;
       foreach ($press as $year => $pressArray) : //print_r($exhibition);
@@ -105,12 +106,12 @@ function press_callback() {
         $count++;
     ?>
       <div style="margin-bottom:10px;"><b><?=$yearGroup;?></b></div>
-      <div style="margin-bottom:10px;"><b><a href="<?=$press['id'];?>"><?=$press['title'];?></a></b> <?php edit_post_link("[edit]", "<br/>"); ?><span class="exdate"><i><?=$press['subhead'];?></i> <?=$press['date'];?></span></div>
+      <div style="margin-bottom:10px;"><b><a href="<?=$press['permalink'];?>"><?=$press['title'];?></a></b> <?php edit_post_link("[edit]", "<br/>"); ?><span class="exdate"><i><?=$press['subhead'];?></i> <?=$press['date'];?></span></div>
       <? endforeach; endforeach;
 	    wp_die(); // this is required to terminate immediately and return a proper response
 }
 
-if ( function_exists( 'add_theme_support' ) ) { 
+if ( function_exists( 'add_theme_support' ) ) {
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 200, 200, true ); // default Post Thumbnail dimensions (cropped)
 
@@ -127,4 +128,4 @@ add_action( 'wp_ajax_publications', 'publications_callback' );
 add_action( 'wp_ajax_nopriv_publications', 'publications_callback' );
 add_action( 'wp_ajax_events', 'events_callback' );
 add_action( 'wp_ajax_nopriv_events', 'events_callback' );
-
+add_filter('posts_orderby','my_sort_custom',10,2);
